@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { MovieDbService } from './movie-db.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  
+  results: any; 
+  
+  constructor(private _movieDB: MovieDbService){}
+  
+  getMovieSearch(movie){
+    this._movieDB.getData(movie).subscribe( data => {
+      this.results = data
+      console.log(this.results)
+    })
+  }
+  
 }
