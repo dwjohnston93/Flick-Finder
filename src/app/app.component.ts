@@ -9,15 +9,15 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AppComponent {
   
-  dataSet: any; 
+  // dataSet: any; 
   
-  constructor(private _movieDB: MovieDbService){}
+  // constructor(private _movieDB: MovieDbService){}
   
-  getMovieSearch(movie){
-    this._movieDB.getData(movie).subscribe( data => {
-      this.dataSet = data
-      console.log(this.dataSet)
-    })
-  }
+  // getMovieSearch(movie){
+  //   this._movieDB.getData(movie).subscribe( data => {
+  //     this.dataSet = data
+  //     console.log(this.dataSet)
+  //   })
+  // }
   
 }

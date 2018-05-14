@@ -1,0 +1,11 @@
+
+<h1> Movie Search App</h1>
+
+<input [(ngModel)] = "movie" #movieInput/>
+
+<button (click) = "getMovieSearch(movieInput.value)"> Search </button>
+
+<div>
+  <h3 *ngFor="let result of dataSet.results"> {{result.original_title}} {{result.release_date}} {{result.overview}}</h3>
+</div>
+
