@@ -3,3 +3,8 @@
 <input [(ngModel)] = "movie" #movieInput/>
 
 <button (click) = "getMovieSearch(movieInput.value)"> Search </button>
+
+<div>
+  <h3 *ngFor="let result of dataSet.results"> {{result.original_title}}</h3>
+    <span *ngFor="let result of dataSet.results"> {{result.release_date}}  </span>
+</div>

@@ -9,14 +9,14 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AppComponent {
   
-  results: any; 
+  dataSet: any; 
   
   constructor(private _movieDB: MovieDbService){}
   
   getMovieSearch(movie){
     this._movieDB.getData(movie).subscribe( data => {
-      this.results = data
-      console.log(this.results)
+      this.dataSet = data
+      console.log(this.dataSet)
     })
   }
   
