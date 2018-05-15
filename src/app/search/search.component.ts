@@ -17,10 +17,7 @@ export class SearchComponent implements OnInit {
   }
   
   getMovieSearch(movie){
-    this._movieDB.getData(movie).subscribe( data => {
-      this.dataSet = data
-      console.log(this.dataSet)
-    })
+    this._movieDB.getData(movie)
   }
 
 }

@@ -13,11 +13,17 @@ export class MovieDbService {
     query: string = "&query="
     
   constructor(private _http: HttpClient) { }
-
+   
+   dataSet: any;
+   
     getData (movieSearch){
         console.log("url request", (this.url + this.apiKey + this.query + movieSearch));
         let urlRequest = this.url + this.apiKey + this.query + movieSearch; 
-        return this._http.get(urlRequest);
+        this._http.get(urlRequest)
+            .subscribe( data => {
+                this.dataSet = data
+                console.log("service", this.dataSet)
+         })
         
     }
 
