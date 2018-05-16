@@ -7,6 +7,15 @@
 <!--<div>-->
 <!--  <h3 *ngFor="let result of dataSet.results"> <img src= "https://image.tmdb.org/t/p/w300_and_h450_bestv2{{result.poster_path}}"> {{result.original_title}} {{result.release_date}} {{result.overview}}</h3>-->
 <!--</div> -->
-    <label for="search_input">
-        <input id="search_input" type="text" placeholder="Search for keywords...">
-    </label>
+    <form class="search">
+        <label for="search_input">
+            <a routerLink = "search" class = "nav-link">
+            <input [(ngModel)] = "movie" #movieInput (click) = "getMovieSearch(movieInput.value)"
+            id="search_input" type="text" placeholder="Search for keywords...">
+            </a>
+        </label>
+    </form>
+    
+<div>
+  <h3 *ngFor="let result of dataSet.results"> <img src= "https://image.tmdb.org/t/p/w300_and_h450_bestv2{{result.poster_path}}"> {{result.original_title}} {{result.release_date}} {{result.overview}}</h3>
+</div> 

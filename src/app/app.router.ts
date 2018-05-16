@@ -7,6 +7,7 @@ import { MainComponent } from './main/main.component';
  
 
 export const router: Routes = [
+    { path: 'main', component: MainComponent }, 
     { path: 'search', component: SearchComponent },
     { path: 'login', component: LoginComponent }
 ];
