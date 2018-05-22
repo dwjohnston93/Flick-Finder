@@ -7,10 +7,17 @@
             <span class="title">Movie Finding App</span>
         </a>
     </div>
-    <app-search></app-search>
+        <form class="search">
+            <label for="search_input">
+                <a routerLink="search" class = "nav-link">
+                <input [(ngModel)]="movie" name="m" #movieInput (click) = "getMovieSearch(movieInput.value)"
+                id="search_input" type="text" placeholder="Search for keywords...">
+                </a>
+            </label>
+        </form>    
     <div class="header-actions">
         <a routerLink = "login" class="nav-link nav-icon">
-            <span id = "loginWord"> Login </span>
+            <span id = "loginWord"> Register </span>
             <clr-icon shape="login"> </clr-icon>
         </a>
     </div>

@@ -11,7 +11,7 @@ import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
 import { SearchComponent } from './search/search.component';
 import { MainComponent } from './main/main.component';
-
+import { MainPageService } from './main-page.service'; 
 
 @NgModule({
   declarations: [
@@ -28,7 +28,7 @@ import { MainComponent } from './main/main.component';
     FormsModule,
     routes
   ],
-  providers: [MovieDbService, AppUserService],
+  providers: [MovieDbService, AppUserService, MainPageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

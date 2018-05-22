@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MainPageService } from '../main-page.service'; 
 
 @Component({
   selector: 'app-main',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _mainS: MainPageService) { }
+
+  popularData: any; 
 
   ngOnInit() {
+    this.getMainPage();
   }
+
+  getMainPage(){
+      this._mainS.getPopularData().subscribe( data =>{
+        this.popularData = data
+        console.log("popular log",  this.popularData); 
+      })
+    }
 
 }
