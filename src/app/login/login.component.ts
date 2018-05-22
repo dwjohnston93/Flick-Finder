@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { AppUserService } from '../app-user.service'; 
 
 @Component({
   selector: 'app-login',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _appUser: AppUserService) { }
 
-  ngOnInit() {
+  user = {}; 
+
+  ngOnInit() {}
+
+  doRegister(){
+    console.log('This registered user:', this.user)
+    this._appUser.registerUser(this.user).subscribe( data => console.log(data));
   }
 
 }

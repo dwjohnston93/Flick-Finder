@@ -13,11 +13,14 @@ export class SearchComponent implements OnInit {
   
   constructor(private _movieDB: MovieDbService){}
   
-  ngOnInit() {
-  }
+  ngOnInit() {}
   
   getMovieSearch(movie){
-    this._movieDB.getData(movie)
+    this._movieDB.getData(movie).subscribe( data =>{
+        this.dataSet = data
+        console.log("service", this.dataSet)
+    })
+
   }
 
 }

@@ -1,6 +1,7 @@
-<div>
-    <input [(ngModel)] = "firstName" placeholder = "First name" />
-    <input [(ngModel)] = "lastName" placeholder = "Last name"/>
-    <input [(ngModel)] = "email" placeholder = "email"/>
-    <input [(ngModel)] = "password" placeholder = "password"/>
-</div>
+<form>
+    <input [(ngModel)]="user.firstName" [ngModelOptions]="{standalone: true}" type="text" placeholder="First name"/>
+    <input [(ngModel)]="user.lastName" [ngModelOptions]="{standalone: true}" type="text" placeholder="Last name"/>
+    <input [(ngModel)]="user.email" [ngModelOptions]="{standalone: true}" type="email" placeholder="email"/>
+    <input [(ngModel)]="user.password" [ngModelOptions]="{standalone: true}" type="password" placeholder="password"/>
+    <button type="submit" (click)="doRegister()"> Register User </button>
+</form>
