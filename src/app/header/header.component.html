@@ -9,10 +9,8 @@
     </div>
         <form class="search">
             <label for="search_input">
-                <a routerLink="search" class = "nav-link">
                 <input [(ngModel)]="movie" name="m" #movieInput (click) = "getMovieSearch(movieInput.value)"
                 id="search_input" type="text" placeholder="Search for keywords...">
-                </a>
             </label>
         </form>    
     <div class="header-actions">

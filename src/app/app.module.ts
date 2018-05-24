@@ -11,7 +11,10 @@ import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
 import { SearchComponent } from './search/search.component';
 import { MainComponent } from './main/main.component';
-import { MainPageService } from './main-page.service'; 
+import { MainPageService } from './main-page.service';
+import { SidebarComponent } from './sidebar/sidebar.component'; 
+import { SidebarService } from './sidebar.service';
+import { ResultsComponent } from './results/results.component'
 
 @NgModule({
   declarations: [
@@ -19,7 +22,9 @@ import { MainPageService } from './main-page.service';
     LoginComponent,
     HeaderComponent,
     SearchComponent,
-    MainComponent
+    MainComponent,
+    SidebarComponent,
+    ResultsComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +33,7 @@ import { MainPageService } from './main-page.service';
     FormsModule,
     routes
   ],
-  providers: [MovieDbService, AppUserService, MainPageService],
+  providers: [MovieDbService, AppUserService, MainPageService, SidebarService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -15,7 +15,7 @@ export class MainPageService {
         console.log("url request", (this.popularURL));
         let popularURLRequest = this.popularURL; 
         return this._http.get(popularURLRequest);
-         }
+    }
          
          
     }
