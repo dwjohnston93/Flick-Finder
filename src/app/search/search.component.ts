@@ -13,7 +13,9 @@ export class SearchComponent implements OnInit {
   
   dataSet: any; 
   
-  constructor(private _movie: MovieDbService){}
+  constructor(private _movie: MovieDbService){
+    this._movie.currentSearch = {};
+  }
   
   ngOnInit() {}
   

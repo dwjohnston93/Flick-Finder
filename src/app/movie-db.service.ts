@@ -59,12 +59,13 @@ export class MovieDbService {
     currentSearch: any;
     
   getMovieData(){
-        console.log("url request", (this.url + this.apiKey + this.query + this.movieSearch));
-        let urlRequest = this.url + this.apiKey + this.query + this.movieSearch; 
-        this._http.get(urlRequest).subscribe( data =>{
-            this.currentSearch = data
-            console.log("currentSearch", this.currentSearch)
+    console.log("url request", (this.url + this.apiKey + this.query + this.movieSearch));
+    let urlRequest = this.url + this.apiKey + this.query + this.movieSearch; 
+    this._http.get(urlRequest).subscribe( data =>{
+        this.currentSearch = data
+        console.log("currentSearch", this.currentSearch)
         })
+        
   }
         
 }

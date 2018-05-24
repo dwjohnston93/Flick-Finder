@@ -19,6 +19,7 @@ export class ResultsComponent implements OnInit {
       this.genreResults = this._movie.genreID;
       console.log("this.genreResults", this.genreResults);
     }
+    this._movie.currentGenre = {};
   }
 
   ngOnInit() {

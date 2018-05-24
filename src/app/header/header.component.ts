@@ -10,7 +10,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private _movie: MovieDbService, private _router: Router) { }
+  constructor(private _movie: MovieDbService, private _router: Router) { 
+    
+  }
 
   ngOnInit() {
   }
@@ -27,6 +29,7 @@ export class HeaderComponent implements OnInit {
         console.log("Header Comp currentSearch", this._movie.currentSearch); 
         this._router.navigate(['search']);
         this._movie.getMovieData(); 
+        this.movie = ""; 
     }
 
 }
