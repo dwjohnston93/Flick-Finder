@@ -1,5 +1,7 @@
+div{
+    max-width: 500px;
+}
+
 form{
-    display: flex;
-    flex-direction: column;
     margin-top: 100px;
 }

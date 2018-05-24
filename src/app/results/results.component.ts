@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieDbService} from '../movie-db.service';
+import { SidebarComponent } from '../sidebar/sidebar.component';
 
 
 @Component({

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MainPageService } from '../main-page.service'; 
+import { SidebarComponent } from '../sidebar/sidebar.component';
 
 @Component({
   selector: 'app-main',

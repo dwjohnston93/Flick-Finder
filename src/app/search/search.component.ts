@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieDbService } from '../movie-db.service';
 import { HttpClient } from '@angular/common/http';
+import { SidebarComponent } from '../sidebar/sidebar.component';
+
 
 @Component({
   selector: 'app-search',
