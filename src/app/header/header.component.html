@@ -9,7 +9,7 @@
     </div>
         <form class="search">
             <label for="search_input">
-                <input [(ngModel)]="movie" name="m" #movieInput (click) = "getMovieSearch(movieInput.value)"
+                <input [(ngModel)]="movie" name="m" #movieInput (keydown.enter) = "onKeydown(getMovieSearch(movieInput.value))"
                 id="search_input" type="text" placeholder="Search for keywords...">
             </label>
         </form>    

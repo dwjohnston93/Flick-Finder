@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
 
   doRegister(){
     console.log('This registered user:', this.user)
-    this._appUser.registerUser(this.user).subscribe( data => {
+    this._appUser.registerUser(this.user).subscribe( (data:any) => {
       sessionStorage.setItem('token', data.token);
       sessionStorage.setItem('userId', data.userId);
       console.log(data)

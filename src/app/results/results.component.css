@@ -1,4 +1,6 @@
-/*div {*/
-/*    margin-top: 100px;*/
-/*    margin-left: 200px;*/
-/*}*/
+.row {
+    margin-top: 85px;
+    margin-left: 315px;
+    margin-right: 25px;
+    z-index: 2; 
+}
