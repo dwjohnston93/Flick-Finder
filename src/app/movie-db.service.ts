@@ -40,10 +40,31 @@ export class MovieDbService {
   apiKey: string = "api_key=e92710572331ea2ed1eb679386cb452c";
   query: string = "&query=";
    
-  getData(movieSearch){
-        console.log("url request", (this.url + this.apiKey + this.query + movieSearch));
-        let urlRequest = this.url + this.apiKey + this.query + movieSearch; 
-        return this._http.get(urlRequest);
+//   getData(movieSearch){
+//         console.log("url request", (this.url + this.apiKey + this.query + movieSearch));
+//         let urlRequest = this.url + this.apiKey + this.query + movieSearch; 
+//         return this._http.get(urlRequest);
+//   }
+   
+//   getMoviesByGenre(){
+//       let genreURLRequest = this.genreMovieURL + this.genreID; 
+//       console.log("getMoviesByGenre", genreURLRequest);
+//       this._http.get(genreURLRequest).subscribe( data => {
+//           this.currentGenre = data
+//           console.log("currentGenre", this.currentGenre)
+//       })
+//   }
+
+    movieSearch: any; 
+    currentSearch: any;
+    
+  getMovieData(){
+        console.log("url request", (this.url + this.apiKey + this.query + this.movieSearch));
+        let urlRequest = this.url + this.apiKey + this.query + this.movieSearch; 
+        this._http.get(urlRequest).subscribe( data =>{
+            this.currentSearch = data
+            console.log("currentSearch", this.currentSearch)
+        })
   }
         
 }
