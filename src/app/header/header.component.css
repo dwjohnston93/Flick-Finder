@@ -7,5 +7,18 @@
 
 #loginWord{
     position: fixed; 
+    margin-left: -100px;
+}
+
+#registerWord{
+    position: fixed; 
+    margin-left: -40px;
+}
+
+#loginShape{
+    margin-left:-200px;
+}
+
+#registerShape{
     margin-left: -40px;
 }

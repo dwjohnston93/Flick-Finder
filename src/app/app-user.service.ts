@@ -8,11 +8,17 @@ export class AppUserService {
 
   constructor(private _http: HttpClient) { }
   
-    url: string =  "http://daniel-q2-2018-phortonssf.c9users.io:8080/api/appUsers";
+    registerURL: string =  "http://daniel-q2-2018-phortonssf.c9users.io:8080/api/appUsers";
     
      registerUser(user){
-       return this._http.post(this.url, user)
+       return this._http.post(this.registerURL, user)
          }
+         
+    loginURL: string = "http://daniel-q2-2018-phortonssf.c9users.io:8080/api/appUsers/login";
+    
+     loginUser(user){
+       return this._http.post(this.loginURL, user)
+     }
     
     
 }

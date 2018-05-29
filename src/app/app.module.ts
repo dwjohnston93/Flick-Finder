@@ -14,7 +14,8 @@ import { MainComponent } from './main/main.component';
 import { MainPageService } from './main-page.service';
 import { SidebarComponent } from './sidebar/sidebar.component'; 
 import { SidebarService } from './sidebar.service';
-import { ResultsComponent } from './results/results.component'
+import { ResultsComponent } from './results/results.component';
+import { Login2Component } from './login-2/login-2.component'
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ResultsComponent } from './results/results.component'
     SearchComponent,
     MainComponent,
     SidebarComponent,
-    ResultsComponent
+    ResultsComponent,
+    Login2Component
   ],
   imports: [
     BrowserModule,

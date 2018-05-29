@@ -10,6 +10,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
+  movie: String;
+  
   constructor(private _movie: MovieDbService, private _router: Router) { 
     
   }

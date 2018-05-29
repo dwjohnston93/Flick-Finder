@@ -8,16 +8,29 @@
         </a>
     </div>
         <form class="search">
-            <label for="search_input">
-                <input [(ngModel)]="movie" name="m" #movieInput (keydown.enter) = "onKeydown(getMovieSearch(movieInput.value))"
-                id="search_input" type="text" placeholder="Search for keywords...">
-            </label>
+            <!--<label for="search_input">-->
+                <button type="button" class="btn btn-icon btn-primary" id="search-button">
+                    <clr-icon shape="search"></clr-icon>
+                 </button>    
+                 <input type="text" [(ngModel)]="movie" name="m" #movieInput (keydown.enter) = "onKeydown(getMovieSearch(movieInput.value))" placeholder="Search for keywords...">
+            <!--</label>-->
         </form>    
     <div class="header-actions">
+        <a routerLink="login-2" class="nav-link nav-icon">
+            <span id="loginWord"> Login </span>
+            <span id="loginShape">
+                <clr-icon shape="login"> </clr-icon>
+            </span>
+        </a> 
         <a routerLink = "login" class="nav-link nav-icon">
-            <span id = "loginWord"> Register </span>
-            <clr-icon shape="login"> </clr-icon>
+            <span id = "registerWord"> Register </span>
+            <span id="registerShape">
+                <clr-icon shape="pencil"> </clr-icon>
+            </span>
         </a>
     </div>
 </header>
 
+ <!--<input [(ngModel)]="movie" name="m" #movieInput (keydown.enter) = "onKeydown(getMovieSearch(movieInput.value))" (click) = "onKeydown(getMovieSearch(movieInput.value))"-->
+ <!--               id="search_input" type="text" placeholder="Search for keywords...">-->
+ <!--               <button class="btn btn-primary">Primary</button>-->

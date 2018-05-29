@@ -1,0 +1,7 @@
+<div>
+    <form>
+        <input [(ngModel)]="user.email" [ngModelOptions]="{standalone: true}" type="email" placeholder="email"/>
+        <input [(ngModel)]="user.password" [ngModelOptions]="{standalone: true}" type="password" placeholder="password"/>
+        <button type="submit" (click)="doLogin()"> Login </button>
+    </form>
+</div>
