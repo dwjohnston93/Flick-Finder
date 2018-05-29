@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MovieDbService} from '../movie-db.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { AppUserService } from '../app-user.service';
 
 
 @Component({
@@ -12,7 +13,7 @@ export class HeaderComponent implements OnInit {
 
   movie: String;
   
-  constructor(private _movie: MovieDbService, private _router: Router) { 
+  constructor(private _movie: MovieDbService, private _router: Router, private _appUser: AppUserService) { 
     
   }
 

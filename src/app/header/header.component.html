@@ -3,7 +3,7 @@
 <header class="header-4">
     <div class="branding">
         <a routerLink = "main" class="nav-link">
-           <clr-icon shape="film-strip" class="is-inverse"></clr-icon>
+           <clr-icon shape="film-strip"  class="is-inverse"></clr-icon>
             <span class="title">Movie Finding App</span>
         </a>
     </div>
@@ -16,18 +16,23 @@
             <!--</label>-->
         </form>    
     <div class="header-actions">
-        <a routerLink="login-2" class="nav-link nav-icon">
-            <span id="loginWord"> Login </span>
-            <span id="loginShape">
-                <clr-icon shape="login"> </clr-icon>
-            </span>
-        </a> 
-        <a routerLink = "login" class="nav-link nav-icon">
-            <span id = "registerWord"> Register </span>
-            <span id="registerShape">
-                <clr-icon shape="pencil"> </clr-icon>
-            </span>
-        </a>
+        <div *ngIf = "_appUser.notLoggedIn; else notLoggedIn">
+            <a routerLink="login-2" class="nav-link nav-icon">
+                <span id="loginWord"> Login </span>
+                <span id="loginShape">
+                    <clr-icon shape="login"> </clr-icon>
+                </span>
+            </a> 
+            <a routerLink = "login" class="nav-link nav-icon">
+                <span id = "registerWord"> Register </span>
+                <span id="registerShape">
+                    <clr-icon shape="pencil"> </clr-icon>
+                </span>
+            </a>
+        </div>
+        <ng-template #notLoggedIn>
+            
+        </ng-template>
     </div>
 </header>
 
