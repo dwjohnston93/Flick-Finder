@@ -10,6 +10,8 @@ export class AppUserService {
   
   notLoggedIn: boolean = true; 
   
+  token = sessionStorage.getItem("token");
+  
     registerURL: string =  "http://daniel-q2-2018-phortonssf.c9users.io:8080/api/appUsers";
     
      registerUser(user){
@@ -24,5 +26,11 @@ export class AppUserService {
        return this._http.post(this.loginURL, user)
      }
     
+    logoutURL: string = "http://daniel-q2-2018-phortonssf.c9users.io:8080/api/appUsers/logout?access_token+" + this.token;
     
+     logoutUser(user){
+         this.notLoggedIn = true;
+         console.log("logoutUser is working")
+         return this._http.post(this.logoutURL, user)
+     }
 }

@@ -16,7 +16,7 @@
             <!--</label>-->
         </form>    
     <div class="header-actions">
-        <div *ngIf = "_appUser.notLoggedIn; else notLoggedIn">
+        <div *ngIf = "_appUser.notLoggedIn; else LoggedIn">
             <a routerLink="login-2" class="nav-link nav-icon">
                 <span id="loginWord"> Login </span>
                 <span id="loginShape">
@@ -30,8 +30,14 @@
                 </span>
             </a>
         </div>
-        <ng-template #notLoggedIn>
-            
+        <ng-template #LoggedIn>
+            <button (click) = _appUser.logoutUser()> Logout </button> 
+            <!--<a routerLink = "login" class="nav-link nav-icon">-->
+            <!--    <span id = "registerWord"> Logout </span>-->
+            <!--    <span id="registerShape">-->
+            <!--        <clr-icon shape="pencil"> </clr-icon>-->
+            <!--    </span>-->
+            <!--</a>-->
         </ng-template>
     </div>
 </header>
