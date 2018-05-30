@@ -2,7 +2,7 @@
 
 <div class="row">
     <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12" *ngFor="let result of _movie.currentGenre.results">
-        <a href="..." class="card clickable">
+        <!--<a href="..." class="card clickable">-->
             <div class="card-img">
                 <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2{{result.poster_path}}" alt="..." />
             </div>
@@ -10,8 +10,9 @@
                 <p class="card-text">
                     {{result.original_title}} {{result.release_date}} {{result.overview}}
                 </p>
+                <button (click) = addMovie(result)> Add to favorite movies</button>
             </div>
-        </a>
+        <!--</a>-->
     </div>
 </div>
 

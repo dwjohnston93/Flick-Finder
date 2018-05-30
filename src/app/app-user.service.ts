@@ -11,26 +11,37 @@ export class AppUserService {
   notLoggedIn: boolean = true; 
   
   token = sessionStorage.getItem("token");
+//   userID = sessionStorage.getItem("userID");
+  movie = {}; 
   
-    registerURL: string =  "http://daniel-q2-2018-phortonssf.c9users.io:8080/api/appUsers";
+    baseURL: string =  "http://daniel-q2-2018-phortonssf.c9users.io:8080/api/appUsers";
     
      registerUser(user){
        this.notLoggedIn = false;
-       return this._http.post(this.registerURL, user)
+       return this._http.post(this.baseURL, user)
          }
          
-    loginURL: string = "http://daniel-q2-2018-phortonssf.c9users.io:8080/api/appUsers/login";
+    loginURL: string = "/login";
     
      loginUser(user){
        this.notLoggedIn = false;
-       return this._http.post(this.loginURL, user)
+       return this._http.post(this.baseURL + this.loginURL, user)
      }
     
-    logoutURL: string = "http://daniel-q2-2018-phortonssf.c9users.io:8080/api/appUsers/logout?access_token+" + this.token;
+    logoutURL: string = "/logout?access_token+";
     
      logoutUser(user){
          this.notLoggedIn = true;
-         console.log("logoutUser is working")
-         return this._http.post(this.logoutURL, user)
+         console.log("logoutUser is working");
+         return this._http.post(this.baseURL + this.logoutURL + this.token, user);
+     }
+     
+     moviesURL: string = "/movies"; 
+     
+
+     saveMovie(movie){
+         console.log("saveMovie is running");
+         let userId = sessionStorage.getItem("userId"); 
+         return this._http.post(this.baseURL + "/" + userId + this.moviesURL, movie)
      }
 }
