@@ -34,6 +34,16 @@ export class HeaderComponent implements OnInit {
         this._movie.getMovieData(); 
         this.movie = ""; 
     }
+    
+   
+    currentUserInfo = "";
+    
+  getUserName(user){
+    this._appUser.getUserInfo(user).subscribe( (data:any) => {
+      this.currentUserInfo = data; 
+    })
+    console.log("currentUser data", this.currentUserInfo); 
+  }
 
 }
   

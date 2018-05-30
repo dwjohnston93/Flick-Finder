@@ -16,17 +16,18 @@
             <!--</label>-->
         </form>    
     <div class="header-actions">
-        <div *ngIf = "_appUser.notLoggedIn; else LoggedIn">
+        <div *ngIf="_appUser.notLoggedIn; else LoggedIn">
             <a routerLink="login-2" class="nav-link nav-icon">
                 <span id="loginWord"> Login </span>
                 <clr-icon shape="login" id="loginShape"> </clr-icon>
             </a> 
-            <a routerLink = "login" class="nav-link nav-icon">
-                <span id = "registerWord"> Register </span>
+            <a routerLink="login" class="nav-link nav-icon">
+                <span id="registerWord"> Register </span>
                 <clr-icon shape="pencil" id="registerShape"> </clr-icon>
             </a>
         </div>
-        <ng-template #LoggedIn>
+        <ng-template #LoggedIn getUserName()>
+            <div id="userName"> Hello {{currentUserInfo.firstName}}</div>
             <button class="btn btn-primary" id="logoutBtn" (click) = _appUser.logoutUser()> Logout </button> 
         </ng-template>
     </div>

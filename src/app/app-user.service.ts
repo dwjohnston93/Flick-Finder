@@ -44,4 +44,10 @@ export class AppUserService {
          let userId = sessionStorage.getItem("userId"); 
          return this._http.post(this.baseURL + "/" + userId + this.moviesURL, movie)
      }
+     
+     getUserInfo(user){
+        let currentUserId: string = sessionStorage.getItem('userId');
+        return this._http.get(this.baseURL + "/" + currentUserId, user)
+     }
+     
 }
