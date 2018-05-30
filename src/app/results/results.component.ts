@@ -29,11 +29,13 @@ export class ResultsComponent implements OnInit {
   
   addMovie(movie){
     
+    console.log(movie);
+    
     let favMovie = {
-      title: "movie.original_title",
-      poster: "https://image.tmdb.org/t/p/w300_and_h450_bestv2 + movie.poster_path",
-      releaseDate: "movie.release_date",
-      synopsis: "movie.overview"
+      title: movie.original_title,
+      poster: movie.poster_path,
+      releaseDate: movie.release_date,
+      synopsis: movie.overview
     }
     
       this._appUser.saveMovie(favMovie).subscribe(saveMovie =>{

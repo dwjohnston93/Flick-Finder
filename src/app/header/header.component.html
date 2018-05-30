@@ -19,15 +19,11 @@
         <div *ngIf = "_appUser.notLoggedIn; else LoggedIn">
             <a routerLink="login-2" class="nav-link nav-icon">
                 <span id="loginWord"> Login </span>
-                <span id="loginShape">
-                    <clr-icon shape="login"> </clr-icon>
-                </span>
+                <clr-icon shape="login" id="loginShape"> </clr-icon>
             </a> 
             <a routerLink = "login" class="nav-link nav-icon">
                 <span id = "registerWord"> Register </span>
-                <span id="registerShape">
-                    <clr-icon shape="pencil"> </clr-icon>
-                </span>
+                <clr-icon shape="pencil" id="registerShape"> </clr-icon>
             </a>
         </div>
         <ng-template #LoggedIn>
