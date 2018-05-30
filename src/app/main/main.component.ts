@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MainPageService } from '../main-page.service'; 
 import { SidebarComponent } from '../sidebar/sidebar.component';
+import { AppUserService } from '../app-user.service';
+
 
 @Component({
   selector: 'app-main',
@@ -9,7 +11,7 @@ import { SidebarComponent } from '../sidebar/sidebar.component';
 })
 export class MainComponent implements OnInit {
 
-  constructor(private _mainS: MainPageService) { }
+  constructor(private _mainS: MainPageService, private _appUser: AppUserService) { }
 
   popularData: any; 
 
@@ -23,5 +25,22 @@ export class MainComponent implements OnInit {
         console.log("popular log",  this.popularData); 
       })
     }
+    
+  addMovie(movie){
+    
+  console.log(movie);
+    
+  let favMovie = {
+      title: movie.original_title,
+      poster: movie.poster_path,
+      releaseDate: movie.release_date,
+      synopsis: movie.overview
+    }
+    
+    this._appUser.saveMovie(favMovie).subscribe(saveMovie =>{
+    console.log("addMovie", saveMovie)
+      })
+        
+  }
 
 }
