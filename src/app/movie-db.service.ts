@@ -24,13 +24,16 @@ export class MovieDbService {
   
   sidebarURL: string = "https://api.themoviedb.org/3/genre/movie/list?api_key=e92710572331ea2ed1eb679386cb452c&language=en-US"; 
   movieURL: string = "https://api.themoviedb.org/3/search/company?api_key=e92710572331ea2ed1eb679386cb452c&query=";
-  
+  genreData:any;
   results: any;
   
   getSidebarData(){
       console.log("sidebarURL request", (this.sidebarURL));
       let sidebarURLRequest = this.sidebarURL; 
-      return this._http.get(sidebarURLRequest); 
+      return this._http.get(sidebarURLRequest).subscribe( data =>{
+        this.genreData = data;
+      console.log("sidebar log", this.genreData); 
+    }); 
   }
   
   getGenre(){}

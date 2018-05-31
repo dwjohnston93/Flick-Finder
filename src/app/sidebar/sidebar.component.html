@@ -8,7 +8,7 @@
 <!--        </div>-->
         <nav class="sidenav">
             <section class="sidenav-content">
-                <a *ngFor="let result of genreData.genres" class="nav-link active" (click)="getResults(result.id, result.name)">
+                <a *ngFor="let result of this._movie.genreData.genres" class="nav-link active" (click)="getResults(result.id, result.name)">
                     {{result.name}}
                 </a>
                 

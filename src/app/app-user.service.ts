@@ -22,7 +22,7 @@ export class AppUserService {
          }
          
     loginURL: string = "/login";
-    userInfo; 
+    userInfo: any; 
     
      loginUser(user){
        this.notLoggedIn = false;

@@ -27,7 +27,7 @@
             </a>
         </div>
         <ng-template #LoggedIn>
-            <div id="userName"> {{_appUser.userInfo.userData.firstName}} {{_appUser.userInfo.userData.lastName}}</div>
+            <div id="userName" *ngIf="_appUser.userInfo"> {{_appUser.userInfo.userData.firstName}} {{_appUser.userInfo.userData.lastName}}</div>
             <!--<button class="btn btn-primary" id="logoutBtn" (click) = _appUser.logoutUser()> Logout </button> -->
             <div class="header-actions">
                 <clr-dropdown>

@@ -13,8 +13,6 @@ export class SidebarComponent implements OnInit {
 
   constructor(private _sidebar: SidebarService, private _movie: MovieDbService, private _router: Router) { }
 
-  genreData: any;
-
   results: any;
 
   ngOnInit() {
@@ -22,10 +20,7 @@ export class SidebarComponent implements OnInit {
   }
 
   getGenres(){
-    this._movie.getSidebarData().subscribe( data =>{
-      this.genreData = data;
-      console.log("sidebar log", this.genreData); 
-    })
+    this._movie.getSidebarData()
   }
   
   getResults(id, name) {
