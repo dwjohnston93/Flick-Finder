@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MainPageService } from '../main-page.service'; 
+import { MovieDbService } from '../movie-db.service'; 
 import { SidebarComponent } from '../sidebar/sidebar.component';
 import { AppUserService } from '../app-user.service';
 
@@ -11,19 +11,14 @@ import { AppUserService } from '../app-user.service';
 })
 export class MainComponent implements OnInit {
 
-  constructor(private _mainS: MainPageService, private _appUser: AppUserService) { }
-
-  popularData: any; 
+  constructor(private _movie: MovieDbService, private _appUser: AppUserService) { }
 
   ngOnInit() {
     this.getMainPage();
   }
 
   getMainPage(){
-      this._mainS.getPopularData().subscribe( data =>{
-        this.popularData = data
-        console.log("popular log",  this.popularData); 
-      })
+      this._movie.getPopularData()
     }
     
   addMovie(movie){
