@@ -19,12 +19,7 @@ export class Login2Component implements OnInit {
 
   doLogin(){
     console.log('This logged in user', this.user)
-    this._appUser.loginUser(this.user).subscribe( (data:any) => {
-      sessionStorage.setItem('token', data.token);
-      sessionStorage.setItem('userId', data.userId);
-      this._router.navigate(['main']);
-      console.log("subscribe data returned", data)
-    });
+    this._appUser.loginUser(this.user)
   }
 
 }

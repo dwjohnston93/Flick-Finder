@@ -1,5 +1,12 @@
+h1{
+    margin-top: -880px;
+    margin-left: 320px;
+    margin-right: 25px;
+    z-index: 2;
+}
+
 .row {
-    margin-top: -890px;
+    margin-top: -30px;
     margin-left: 315px;
     margin-right: 25px;
     z-index: 2;

@@ -26,10 +26,10 @@ export class SearchComponent implements OnInit {
     console.log(movie);
     
     let favMovie = {
-      title: movie.original_title,
-      poster: movie.poster_path,
-      releaseDate: movie.release_date,
-      synopsis: movie.overview
+      original_title: movie.original_title,
+      poster_path: movie.poster_path,
+      release_date: movie.release_date,
+      overview: movie.overview
     }
     
       this._appUser.saveMovie(favMovie).subscribe(saveMovie =>{

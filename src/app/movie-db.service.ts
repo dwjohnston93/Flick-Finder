@@ -14,7 +14,6 @@ export class MovieDbService {
   movieURL: string = "https://api.themoviedb.org/3/search/company?api_key=e92710572331ea2ed1eb679386cb452c&query=";
   
   results: any;
-  genreID: number;
   
   getSidebarData(){
       console.log("sidebarURL request", (this.sidebarURL));
@@ -26,6 +25,9 @@ export class MovieDbService {
   
   genreMovieURL: string = "https://api.themoviedb.org/3/discover/movie?api_key=e92710572331ea2ed1eb679386cb452c&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres="
   currentGenre: any;
+  genreID: number;
+  genreName: string; 
+
   
   getMoviesByGenre(){
       let genreURLRequest = this.genreMovieURL + this.genreID; 
@@ -46,15 +48,6 @@ export class MovieDbService {
 //         return this._http.get(urlRequest);
 //   }
    
-//   getMoviesByGenre(){
-//       let genreURLRequest = this.genreMovieURL + this.genreID; 
-//       console.log("getMoviesByGenre", genreURLRequest);
-//       this._http.get(genreURLRequest).subscribe( data => {
-//           this.currentGenre = data
-//           console.log("currentGenre", this.currentGenre)
-//       })
-//   }
-
     movieSearch: any; 
     currentSearch: any;
     

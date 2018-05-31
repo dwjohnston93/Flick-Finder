@@ -26,8 +26,8 @@
                 <clr-icon shape="pencil" id="registerShape"> </clr-icon>
             </a>
         </div>
-        <ng-template #LoggedIn getUserName()>
-            <div id="userName"> Hello {{currentUserInfo.firstName}}</div>
+        <ng-template #LoggedIn>
+            <div id="userName"> {{_appUser.userInfo.userData.firstName}}  {{_appUser.userInfo.userData.lastName}}</div>
             <button class="btn btn-primary" id="logoutBtn" (click) = _appUser.logoutUser()> Logout </button> 
         </ng-template>
     </div>

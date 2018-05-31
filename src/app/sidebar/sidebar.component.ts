@@ -28,8 +28,9 @@ export class SidebarComponent implements OnInit {
     })
   }
   
-  getResults(id) {
+  getResults(id, name) {
     this._movie.genreID = id;
+    this._movie.genreName = name; 
     console.log('Movie Service Genre ID:', this._movie.genreID);
     this._router.navigate(['results']);
     this._movie.getMoviesByGenre();
