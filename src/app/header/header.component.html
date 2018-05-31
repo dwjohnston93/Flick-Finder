@@ -27,8 +27,21 @@
             </a>
         </div>
         <ng-template #LoggedIn>
-            <div id="userName"> {{_appUser.userInfo.userData.firstName}}  {{_appUser.userInfo.userData.lastName}}</div>
-            <button class="btn btn-primary" id="logoutBtn" (click) = _appUser.logoutUser()> Logout </button> 
+            <div id="userName"> {{_appUser.userInfo.userData.firstName}} {{_appUser.userInfo.userData.lastName}}</div>
+            <!--<button class="btn btn-primary" id="logoutBtn" (click) = _appUser.logoutUser()> Logout </button> -->
+            <div class="header-actions">
+                <clr-dropdown>
+                    <button class="nav-icon" clrDropdownTrigger>
+                        <clr-icon shape="user"></clr-icon>
+                        <clr-icon shape="caret down"></clr-icon>
+                    </button>
+                    <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
+                        <a href="..." clrDropdownItem>Your Profile</a>
+                        <a href="..." clrDropdownItem>Favorite Movies</a>
+                        <a href="_appUser.logoutUser()" clrDropdownItem>Log out</a>
+                    </clr-dropdown-menu>
+                </clr-dropdown>
+            </div>
         </ng-template>
     </div>
 </header>
