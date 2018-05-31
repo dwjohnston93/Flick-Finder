@@ -14,5 +14,10 @@ export class UserProfileComponent implements OnInit {
 
   ngOnInit() {
   }
+  
+  deleteMovie(movie){
+    console.log(movie);
+    this._appUser.deleteFavMovie(movie);
+  }
 
 }

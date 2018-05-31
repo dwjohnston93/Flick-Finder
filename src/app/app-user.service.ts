@@ -18,12 +18,16 @@ export class AppUserService {
     
      registerUser(user){
        this.notLoggedIn = false;
-       return this._http.post(this.baseURL, user)
-         }
+       this._http.post(this.baseURL, user).subscribe( (data:any) => {
+            sessionStorage.setItem('token', data.token);
+            sessionStorage.setItem('userId', data.userId);
+            this._router.navigate(['main']);
+        });
+     }
          
     loginURL: string = "/login";
     userInfo: any; 
-    
+
      loginUser(user){
        this.notLoggedIn = false;
        this._http.post(this.baseURL + this.loginURL, user).subscribe( (data:any) => {
@@ -59,5 +63,31 @@ export class AppUserService {
         let currentUserId: string = sessionStorage.getItem('userId');
         return this._http.get(this.baseURL + "/" + currentUserId, user)
      }
+     
+     
+    //  getPopularData(){
+    //     console.log("url request", (this.popularURL));
+    //     let popularURLRequest = this.popularURL; 
+    //     return this._http.get(popularURLRequest).subscribe( data =>{
+    //     this.popularData = data
+    //     console.log("popular log",  this.popularData); 
+    //   });
+    // }
+    
+    
+    // http://daniel-q2-2018-phortonssf.c9users.io:8080/api/appUsers/5afce1aa912d74fa3be3e456/movies/5b0f7730a362c7b516d3858
+    //http://daniel-q2-2018-phortonssf.c9users.io:8080/api/appUsers/5afce1aa912d74fa3be3e456/moviesundefined
+
+     deleteFavMovie(movie){
+         let currentUserId: string = sessionStorage.getItem('userId');
+         let currentMovie: string = movie.id;
+         let deleteURLRequest = (this.baseURL + "/" + currentUserId + "/movies/" +  currentMovie)
+         console.log("movie.original_title", movie);
+         return this._http.delete(deleteURLRequest).subscribe( data =>{
+             let deleteIndex = this.userInfo.userData.movies.indexOf(movie);
+             this.userInfo.userData.movies.splice(deleteIndex, 1); 
+         })
+     }
+     
      
 }

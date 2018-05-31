@@ -14,12 +14,12 @@
                    <strong>{{result.original_title}}</strong> <br>
                    <strong>Release Date:</strong> {{result.release_date}} <br>
                    <strong>Overview:</strong>{{result.overview}} <br>
-                   <!--<strong>User Rating:</strong>{{result.vote_average}}/10                -->
+                   <!--<strong>User Rating:</strong>{{result.vote_average}}/10-->
                 </p>
             </div>
-            <!--<div class="card-footer" *ngIf = "!_appUser.notLoggedIn">-->
-            <!--    <button class="btn btn-sm btn-link" (click)=addMovie(result)>Add movie to favorites</button>-->
-            <!--</div>-->
+            <div class="card-footer" *ngIf = "!_appUser.notLoggedIn">
+                <button class="btn btn-sm btn-link" (click)=deleteMovie(result)>Delete movie from favorites</button>
+            </div>
         </div>
     </div>
 </div>
