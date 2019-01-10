@@ -14,7 +14,7 @@ export class AppUserService {
 //   userID = sessionStorage.getItem("userID");
   movie = {}; 
   
-    baseURL: string =  "http://daniel-q2-2018-phortonssf.c9users.io:8080/api/appUsers";
+  baseURL: string =  "http://daniel-q2-2018-phortonssf.c9users.io:8080/api/appUsers";
     
      registerUser(user){
        this.notLoggedIn = false;
@@ -46,13 +46,14 @@ export class AppUserService {
          console.log("logoutUser is working");
          return this._http.post(this.baseURL + this.logoutURL + this.token, user);
      }
-     
+    
      moviesURL: string = "/movies"; 
      
 
      saveMovie(movie){
          console.log("saveMovie is running");
          let userId = sessionStorage.getItem("userId"); 
+         this.userInfo.userData.movies.push(movie);
          return this._http.post(this.baseURL + "/" + userId + this.moviesURL, movie)
      }
      

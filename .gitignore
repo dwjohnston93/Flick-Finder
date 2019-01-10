@@ -34,6 +34,9 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
+/data
+/server
+mongod
 
 # e2e
 /e2e/*.js
