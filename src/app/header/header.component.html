@@ -36,7 +36,7 @@
                         <clr-icon shape="caret down"></clr-icon>
                     </button>
                     <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
-                        <a routerLink="<user-prof></user-prof>ile" clrDropdownItem>View Profile</a>
+                        <a routerLink="user-profile" clrDropdownItem>View Profile</a>
                         <a routerLink="main" (click)="_appUser.logoutUser()" clrDropdownItem>Log out</a>
                     </clr-dropdown-menu>
                 </clr-dropdown>
@@ -44,7 +44,3 @@
         </ng-template>
     </div>
 </header>
-
- <!--<input [(ngModel)]="movie" name="m" #movieInput (keydown.enter) = "onKeydown(getMovieSearch(movieInput.value))" (click) = "onKeydown(getMovieSearch(movieInput.value))"-->
- <!--               id="search_input" type="text" placeholder="Search for keywords...">-->
- <!--               <button class="btn btn-primary">Primary</button>-->

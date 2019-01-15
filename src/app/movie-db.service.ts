@@ -4,9 +4,6 @@ import { Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class MovieDbService {
-    // example request: https://api.themoviedb.org/3/movie/76341?api_key={api_key}
-    // Jack Reacher example: https://api.themoviedb.org/3/search/movie?api_key={api_key}&query=Jack+Reacher
-    // Avatar movie search example: https://api.themoviedb.org/3/search/movie?api_key=e92710572331ea2ed1eb679386cb452c&query=Avatar
     
   constructor(private _http: HttpClient) { }
   
