@@ -1,0 +1,30 @@
+{
+    "name":"movie",
+    "base":"PersistedModel",
+    "idInjection":true,
+    "options":{
+        "validateUpsert":true
+    },
+    "properties":{
+        "original_title":{
+            "type":"string",
+            "required":true
+        },
+        "poster_path":{
+            "type":"string",
+            "required":true
+        },
+        "release_date":{
+            "type":"string",
+            "required":true
+        },
+        "overview":{
+            "type":"string",
+            "required":true
+        }
+    },
+    "validations":[],
+    "relations":{},
+    "acls":[],
+    "methods":{}
+}

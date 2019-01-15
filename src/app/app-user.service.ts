@@ -14,7 +14,7 @@ export class AppUserService {
 //   userID = sessionStorage.getItem("userID");
   movie = {}; 
   
-  baseURL: string =  "http://daniel-q2-2018-phortonssf.c9users.io:8080/api/appUsers";
+  baseURL: string =  "http://localhost:3000/api/appUsers";
     
      registerUser(user){
        this.notLoggedIn = false;
