@@ -3,7 +3,6 @@ import { MovieDbService } from '../movie-db.service';
 import { SidebarComponent } from '../sidebar/sidebar.component';
 import { AppUserService } from '../app-user.service';
 
-
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -24,7 +23,7 @@ export class MainComponent implements OnInit {
   addMovie(movie){
     
   console.log(movie);
-    
+  
   let favMovie = {
       original_title: movie.original_title,
       poster_path: movie.poster_path,
