@@ -11,11 +11,9 @@ export class MovieDbService {
   popularData: any;
   
     getPopularData(){
-        console.log("url request", (this.popularURL));
         let popularURLRequest = this.popularURL; 
         return this._http.get(popularURLRequest).subscribe( data =>{
         this.popularData = data
-        console.log("popular log",  this.popularData); 
       });
     }
   
@@ -25,11 +23,9 @@ export class MovieDbService {
   results: any;
   
   getSidebarData(){
-      console.log("sidebarURL request", (this.sidebarURL));
       let sidebarURLRequest = this.sidebarURL; 
       return this._http.get(sidebarURLRequest).subscribe( data =>{
         this.genreData = data;
-      console.log("sidebar log", this.genreData); 
     }); 
   }
   
@@ -43,10 +39,8 @@ export class MovieDbService {
   
   getMoviesByGenre(){
       let genreURLRequest = this.genreMovieURL + this.genreID; 
-      console.log("getMoviesByGenre", genreURLRequest);
       this._http.get(genreURLRequest).subscribe( data => {
           this.currentGenre = data
-          console.log("currentGenre", this.currentGenre)
       })
   }
   
@@ -54,21 +48,13 @@ export class MovieDbService {
   apiKey: string = "api_key=e92710572331ea2ed1eb679386cb452c";
   query: string = "&query=";
    
-//   getData(movieSearch){
-//         console.log("url request", (this.url + this.apiKey + this.query + movieSearch));
-//         let urlRequest = this.url + this.apiKey + this.query + movieSearch; 
-//         return this._http.get(urlRequest);
-//   }
-   
     movieSearch: any; 
     currentSearch: any;
     
   getMovieData(){
-    console.log("url request", (this.url + this.apiKey + this.query + this.movieSearch));
     let urlRequest = this.url + this.apiKey + this.query + this.movieSearch; 
     this._http.get(urlRequest).subscribe( data =>{
         this.currentSearch = data
-        console.log("currentSearch", this.currentSearch)
         })
         
   }

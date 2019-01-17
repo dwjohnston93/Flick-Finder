@@ -34,7 +34,6 @@ export class AppUserService {
          sessionStorage.setItem('userId', data.userId);
          this._router.navigate(['main']);
          this.userInfo = data; 
-         console.log("subscribe data returned", data)
        });
      }
     
@@ -42,7 +41,6 @@ export class AppUserService {
     
      logoutUser(user){
          this.notLoggedIn = true;
-         console.log("logoutUser is working");
          return this._http.post(this.baseURL + this.logoutURL + this.token, user);
      }
     
@@ -50,7 +48,6 @@ export class AppUserService {
      
 
      saveMovie(movie){
-         console.log("saveMovie is running");
          let userId = sessionStorage.getItem("userId"); 
          this.userInfo.userData.movies.push(movie);
          return this._http.post(this.baseURL + "/" + userId + this.moviesURL, movie)
@@ -68,7 +65,6 @@ export class AppUserService {
          let currentUserId: string = sessionStorage.getItem('userId');
          let currentMovie: string = movie.id;
          let deleteURLRequest = (this.baseURL + "/" + currentUserId + "/movies/" +  currentMovie)
-         console.log("movie.original_title", movie);
          return this._http.delete(deleteURLRequest).subscribe( data =>{
              let deleteIndex = this.userInfo.userData.movies.indexOf(movie);
              this.userInfo.userData.movies.splice(deleteIndex, 1); 

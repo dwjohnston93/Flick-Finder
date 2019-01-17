@@ -21,9 +21,7 @@ export class MainComponent implements OnInit {
     }
     
   addMovie(movie){
-    
-  console.log(movie);
-  
+      
   let favMovie = {
       original_title: movie.original_title,
       poster_path: movie.poster_path,
@@ -32,7 +30,6 @@ export class MainComponent implements OnInit {
     }
     
     this._appUser.saveMovie(favMovie).subscribe(saveMovie =>{
-    console.log("addMovie", saveMovie)
       })
         
   }

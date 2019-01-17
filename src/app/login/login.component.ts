@@ -17,7 +17,6 @@ export class LoginComponent implements OnInit {
   ngOnInit() {}
 
   doRegister(){
-    console.log('This registered user:', this.user)
     this._appUser.registerUser(this.user)
   }
 
