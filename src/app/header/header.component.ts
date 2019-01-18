@@ -20,22 +20,14 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
-  // getResults(id) {
-  //   this._movie.genreID = id;
-  //   console.log('Movie Service Genre ID:', this._movie.genreID)
-  //   this._router.navigate(['results'])
-  //   this._movie.getMoviesByGenre()
-  // }
-
   getMovieSearch(movie){
     this._movie.movieSearch = movie;
         console.log("Header Comp currentSearch", this._movie.currentSearch); 
-        this._router.navigate(['search']);
+        this._router.navigate(['search']); 
         this._movie.getMovieData(); 
-        this.movie = ""; 
+        this.movie = "";
     }
     
-   
     currentUserInfo = "";
     
   getUserName(user){

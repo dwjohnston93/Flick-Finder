@@ -15,6 +15,7 @@ export class AppUserService {
   
   baseURL: string =  "http://localhost:3000/api/appUsers";
     
+    //post request to register new users
      registerUser(user){
        this.notLoggedIn = false;
        this._http.post(this.baseURL, user).subscribe( (data:any) => {
@@ -27,6 +28,7 @@ export class AppUserService {
     loginURL: string = "/login";
     userInfo: any; 
 
+    //post request to login a returning user
      loginUser(user){
        this.notLoggedIn = false;
        this._http.post(this.baseURL + this.loginURL, user).subscribe( (data:any) => {
@@ -39,6 +41,7 @@ export class AppUserService {
     
     logoutURL: string = "/logout?access_token+";
     
+    //post request to log out user
      logoutUser(user){
          this.notLoggedIn = true;
          return this._http.post(this.baseURL + this.logoutURL + this.token, user);
@@ -46,7 +49,7 @@ export class AppUserService {
     
      moviesURL: string = "/movies"; 
      
-
+     //post request to save a movie to a user's favorites
      saveMovie(movie){
          let userId = sessionStorage.getItem("userId"); 
          this.userInfo.userData.movies.push(movie);
