@@ -17,6 +17,10 @@ export class Login2Component implements OnInit {
   ngOnInit() {
   }
 
+  goToRegister(){
+    this._router.navigate(['login']);
+  }
+
   doLogin(){
     this._appUser.loginUser(this.user)
   }
