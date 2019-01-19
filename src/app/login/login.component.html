@@ -1,4 +1,4 @@
-<div>
+<!-- <div>
     <form>
         <input [(ngModel)]="user.firstName" [ngModelOptions]="{standalone: true}" type="text" placeholder="First name"/>
         <input [(ngModel)]="user.lastName" [ngModelOptions]="{standalone: true}" type="text" placeholder="Last name"/>
@@ -6,4 +6,37 @@
         <input [(ngModel)]="user.password" [ngModelOptions]="{standalone: true}" type="password" placeholder="password"/>
         <button class="btn btn-primary" type="register user" (click)="doRegister()">Register User</button>
     </form>
-</div>
+</div> -->
+
+<div class="login-wrapper">
+        <form class="login">
+            <section class="title">
+                <h3 class="welcome">Register for</h3>
+                <clr-icon shape="film-strip" size="60"></clr-icon>            
+                Flick Finder 
+            </section>
+            <div class="login-group">
+                <!-- <div class="auth-source select">
+                    <select id="login-auth-source-1">
+                        <option>Local Users</option>
+                        <option>Administrator</option>
+                    </select>
+                </div> -->
+                <input [(ngModel)]="user.firstName" [ngModelOptions]="{standalone: true}" type="text" placeholder="First name"/>
+                <input [(ngModel)]="user.lastName" [ngModelOptions]="{standalone: true}" type="text" placeholder="Last name"/>
+                <input [(ngModel)]="user.email" [ngModelOptions]="{standalone: true}" type="email" placeholder="email"/>
+                <input [(ngModel)]="user.password" [ngModelOptions]="{standalone: true}" type="password" placeholder="password"/>
+                <div class="checkbox">
+                    <!-- <input type="checkbox" id="rememberme">
+                    <label for="rememberme">
+                        Remember me
+                    </label> -->
+                </div>
+                <!-- <div class="error active">
+                    Invalid user name or password
+                </div> -->
+                <button type="submit" class="btn btn-primary" (click)="doRegister()">Register</button>
+            <a routerLink (click)="goToLogin()" class="nav-link nav-icon">Already have an account? Click here</a>
+            </div>
+        </form>
+    </div>

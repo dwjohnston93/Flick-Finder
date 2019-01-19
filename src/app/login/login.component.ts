@@ -20,4 +20,8 @@ export class LoginComponent implements OnInit {
     this._appUser.registerUser(this.user)
   }
 
+  goToLogin(){
+    this._router.navigate(['login-2']);
+  }
+
 }
