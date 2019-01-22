@@ -12,7 +12,9 @@ export class AppUserService {
   
   token = sessionStorage.getItem("token");
   movie = {}; 
-  
+  userData = {}; 
+  userInfo = {}; 
+
   baseURL: string =  "http://localhost:3000/api/appUsers";
     
     //post request to register new users
@@ -21,12 +23,15 @@ export class AppUserService {
        this._http.post(this.baseURL, user).subscribe( (data:any) => {
             sessionStorage.setItem('token', data.token);
             sessionStorage.setItem('userId', data.userId);
+            // this.userInfo = data;
+            console.log("data:", data);
+            console.log("userInfo:", this.userInfo);
+            console.log("userData:", this.userData);
             this._router.navigate(['main']);
         });
      }
          
     loginURL: string = "/login";
-    userInfo: any; 
 
     //post request to login a returning user
      loginUser(user){
@@ -35,6 +40,8 @@ export class AppUserService {
          sessionStorage.setItem('token', data.token);
          sessionStorage.setItem('userId', data.userId);
          this._router.navigate(['main']);
+         console.log("data:", data);
+         console.log("userData:", this.userInfo);
          this.userInfo = data; 
        });
      }

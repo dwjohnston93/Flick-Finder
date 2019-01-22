@@ -5,7 +5,6 @@ import { SidebarComponent } from '../sidebar/sidebar.component';
 import { AppUserService } from '../app-user.service';
 
 
-
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -37,13 +36,5 @@ export class SearchComponent implements OnInit {
         })
         
   }
-  
-  // getMovieSearch(movie){
-  //   this._movieDB.getData(movie).subscribe( data =>{
-  //       this.dataSet = data
-  //       console.log("service", this.dataSet)
-  //   })
-
-  // }
 
 }
