@@ -16,7 +16,6 @@ export class UserProfileComponent implements OnInit {
   }
   
   deleteMovie(movie){
-    console.log(movie);
     this._appUser.deleteFavMovie(movie);
   }
 

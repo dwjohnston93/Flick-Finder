@@ -12,8 +12,8 @@ export class AppUserService {
   
   token = sessionStorage.getItem("token");
   movie = {}; 
-  userData = {}; 
-  userInfo = {}; 
+  userData: any = {}; 
+  userInfo: any = {}; 
 
   baseURL: string =  "http://localhost:3000/api/appUsers";
     
@@ -23,10 +23,6 @@ export class AppUserService {
        this._http.post(this.baseURL, user).subscribe( (data:any) => {
             sessionStorage.setItem('token', data.token);
             sessionStorage.setItem('userId', data.userId);
-            // this.userInfo = data;
-            console.log("data:", data);
-            console.log("userInfo:", this.userInfo);
-            console.log("userData:", this.userData);
             this._router.navigate(['main']);
         });
      }
@@ -40,8 +36,6 @@ export class AppUserService {
          sessionStorage.setItem('token', data.token);
          sessionStorage.setItem('userId', data.userId);
          this._router.navigate(['main']);
-         console.log("data:", data);
-         console.log("userData:", this.userInfo);
          this.userInfo = data; 
        });
      }
@@ -75,6 +69,8 @@ export class AppUserService {
          let currentUserId: string = sessionStorage.getItem('userId');
          let currentMovie: string = movie.id;
          let deleteURLRequest = (this.baseURL + "/" + currentUserId + "/movies/" +  currentMovie)
+         let deleteIndex = this.userInfo.userData.movies.indexOf(movie);
+         this.userInfo.userData.movies.splice(deleteIndex, 1); 
          return this._http.delete(deleteURLRequest).subscribe( data =>{
              let deleteIndex = this.userInfo.userData.movies.indexOf(movie);
              this.userInfo.userData.movies.splice(deleteIndex, 1); 

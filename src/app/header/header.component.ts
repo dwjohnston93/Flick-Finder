@@ -34,7 +34,6 @@ export class HeaderComponent implements OnInit {
     this._appUser.getUserInfo(user).subscribe( (data:any) => {
       this.currentUserInfo = data; 
     })
-    console.log("currentUser data", this.currentUserInfo); 
   }
 
 }
