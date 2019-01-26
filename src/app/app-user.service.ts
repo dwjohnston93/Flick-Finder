@@ -53,8 +53,10 @@ export class AppUserService {
      //post request to save a movie to a user's favorites
      saveMovie(movie){
          let userId = sessionStorage.getItem("userId"); 
-         this.userInfo.userData.movies.push(movie);
-         return this._http.post(this.baseURL + "/" + userId + this.moviesURL, movie)
+         return this._http.post(this.baseURL + "/" + userId + this.moviesURL, movie).subscribe(saveMovie =>{
+            this.userInfo.userData.movies.push(saveMovie);
+            console.log("Saved movie:", movie); 
+        })
      }
      
      
@@ -68,12 +70,14 @@ export class AppUserService {
      deleteFavMovie(movie){
          let currentUserId: string = sessionStorage.getItem('userId');
          let currentMovie: string = movie.id;
+         console.log("movie:", movie); 
+         console.log("currentMovie:", currentMovie);
          let deleteURLRequest = (this.baseURL + "/" + currentUserId + "/movies/" +  currentMovie)
          let deleteIndex = this.userInfo.userData.movies.indexOf(movie);
          this.userInfo.userData.movies.splice(deleteIndex, 1); 
          return this._http.delete(deleteURLRequest).subscribe( data =>{
-             let deleteIndex = this.userInfo.userData.movies.indexOf(movie);
-             this.userInfo.userData.movies.splice(deleteIndex, 1); 
+            //  let deleteIndex = this.userInfo.userData.movies.indexOf(movie);
+            //  this.userInfo.userData.movies.splice(deleteIndex, 1); 
          })
      }
      

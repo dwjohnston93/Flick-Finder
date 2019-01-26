@@ -31,9 +31,7 @@ export class SearchComponent implements OnInit {
       overview: movie.overview
     }
     
-      this._appUser.saveMovie(favMovie).subscribe(saveMovie =>{
-      console.log("addMovie", saveMovie)
-        })
+      this._appUser.saveMovie(favMovie)
         
   }
 

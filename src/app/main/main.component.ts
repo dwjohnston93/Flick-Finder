@@ -29,8 +29,7 @@ export class MainComponent implements OnInit {
       overview: movie.overview
     }
     
-    this._appUser.saveMovie(favMovie).subscribe(saveMovie =>{
-      })
+    this._appUser.saveMovie(favMovie)
         
   }
 
