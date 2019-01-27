@@ -1,25 +1,28 @@
-<div>
-    <h3><strong> Name: </strong>{{_appUser.userInfo.userData.firstName}} {{_appUser.userInfo.userData.lastName}}</h3>
-    <h3><strong> Email: </strong> {{_appUser.userInfo.userData.email}}</h3>
-</div>
-    <h3><strong>Favorited Movies:</strong></h3>
-<div class="row">
-    <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12" *ngFor="let result of _appUser.userInfo.userData.movies">
-        <div class="card">
-            <div class="card-img">
-                <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2{{result.poster_path}}" alt="..." />
-            </div>
-            <div class="card-block">
-                <p class="card-text">
-                   <strong>{{result.original_title}}</strong> <br>
-                   <strong>Release Date:</strong> {{result.release_date}} <br>
-                   <strong>Overview:</strong>{{result.overview}} <br>
-                   <!--<strong>User Rating:</strong>{{result.vote_average}}/10-->
-                </p>
-            </div>
-            <div class="card-footer" *ngIf = "!_appUser.notLoggedIn">
-                <button class="btn btn-sm btn-link" (click)=deleteMovie(result)>Delete movie from favorites</button>
+    <div id="header">
+        <h3><strong> Name: </strong>{{_appUser.userInfo.userData.firstName}} {{_appUser.userInfo.userData.lastName}}</h3>
+        <h3><strong> Email: </strong> {{_appUser.userInfo.userData.email}}</h3>
+    </div>
+        <h3><strong>Favorited Movies:</strong></h3>
+    <div class="row" *ngIf="_appUser.userInfo.userData.movies.length !== 0; else prompt">
+        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12" *ngFor="let result of _appUser.userInfo.userData.movies">
+            <div class="card">
+                <div class="card-img">
+                    <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2{{result.poster_path}}" alt="..." />
+                </div>
+                <div class="card-block">
+                    <p class="card-text">
+                    <strong>{{result.original_title}}</strong> <br>
+                    <strong>Release Date:</strong> {{result.release_date}} <br>
+                    <strong>Overview:</strong>{{result.overview}} <br>
+                    <!--<strong>User Rating:</strong>{{result.vote_average}}/10-->
+                    </p>
+                </div>
+                <div class="card-footer" *ngIf = "!_appUser.notLoggedIn">
+                    <button class="btn btn-sm btn-link" (click)=deleteMovie(result)>Delete movie from favorites</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
+    <ng-template #prompt >
+        <strong id="prompt">Favorite some movies!</strong>
+    </ng-template>
