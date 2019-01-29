@@ -50,34 +50,13 @@ export class AppUserService {
     
      moviesURL: string = "/movies"; 
      
-     //post request to save a movie to a user's favorites
-
-    //  0:
-    //  id: "5c4cf490b0292d34184b53b5"
-    //  original_title: "Bumblebee"
-    //  overview: "On the run in the year 1987, Bumblebee finds refuge in a junkyard in a small Californian beach town. Charlie, on the cusp of turning 18 and trying to find her place in the world, discovers Bumblebee, battle-scarred and broken.  When Charlie revives him, she quickly learns this is no ordinary yellow VW bug."
-    //  poster_path: "/fw02ONlDhrYjTSZV8XO6hhU3ds3.jpg"
-    //  release_date: "2018-12-15"
-    //  userId: "5c4013172d9f051358078fff"
-    //  __proto__: Object
-    //  1: {original_title: "Aquaman", poster_path: "/5Kg76ldv7VxeX9YlcQXiowHgdX6.jpg", release_date: "2018-12-07", overview: "Arthur Curry learns that he is the heir to the und…rd to lead his people and be a hero to the world.", id: "5c4cf492b0292d34184b53b6", …}
-    //  2: {original_title: "Aquaman", poster_path: "/5Kg76ldv7VxeX9YlcQXiowHgdX6.jpg", release_date: "2018-12-07", overview: "Arthur Curry learns that he is the heir to the und…rd to lead his people and be a hero to the world.", id: "5c4cf492b0292d34184b53b7", …}
-    //  3: {original_title: "Bohemian Rhapsody", poster_path: "/gbmkFWdtihe1VfydTDsieQ6VfGL.jpg", release_date: "2018-10-24", overview: "Singer Freddie Mercury, guitarist Brian May, drumm…ep the band together amid the success and excess.", id: "5c4cf492b0292d34184b53b8", …}
-    //  4: {original_title: "Bumblebee", poster_path: "/fw02ONlDhrYjTSZV8XO6hhU3ds3.jpg", release_date: "2018-12-15", overview: "On the run in the year 1987, Bumblebee finds refug…quickly learns this is no ordinary yellow VW bug.", id: "5c4cf52cb0292d34184b53b9", …}
-    //  5: {original_title: "Aquaman", poster_path: "/5Kg76ldv7VxeX9YlcQXiowHgdX6.jpg", release_date: "2018-12-07", overview: "Arthur Curry learns that he is the heir to the und…rd to lead his people and be a hero to the world.", id: "5c4cf534b0292d34184b53ba", …}
-    //  6: {original_title: "Bumblebee", poster_path: "/fw02ONlDhrYjTSZV8XO6hhU3ds3.jpg", release_date: "2018-12-15", overview: "On the run in the year 1987, Bumblebee finds refug…quickly learns this is no ordinary yellow VW bug.", id: "5c4cf54ab0292d34184b53bb", …}
-    //  length: 7
 
      saveMovie(movie){
          let userId = sessionStorage.getItem("userId"); 
          console.log(this.userInfo.userData.movies);
-         let check = this.userInfo.userData.movies.filter(saved => { 
-            console.log("movie:", movie);
-            console.log("saved.id:", saved.overview);
-            console.log("movie.id:", movie.overview); 
+         let check = this.userInfo.userData.movies.filter(saved => {  
             return saved.overview === movie.overview
          });
-         console.log("check:", check);
          if (check.length === 1){
             return
          } 
@@ -85,7 +64,6 @@ export class AppUserService {
             return this._http.post(this.baseURL + "/" + userId + this.moviesURL, movie)
             .subscribe(saveMovie =>{
                 this.userInfo.userData.movies.push(saveMovie);
-                console.log("Saved movie:", movie); 
             })
          }
          
@@ -102,14 +80,10 @@ export class AppUserService {
      deleteFavMovie(movie){
         let currentUserId: string = sessionStorage.getItem('userId');
          let currentMovie: string = movie.id;
-         console.log("movie:", movie); 
-         console.log("currentMovie:", currentMovie);
          let deleteURLRequest = (this.baseURL + "/" + currentUserId + "/movies/" +  currentMovie)
          let deleteIndex = this.userInfo.userData.movies.indexOf(movie);
          this.userInfo.userData.movies.splice(deleteIndex, 1); 
          return this._http.delete(deleteURLRequest).subscribe( data =>{
-            //  let deleteIndex = this.userInfo.userData.movies.indexOf(movie);
-            //  this.userInfo.userData.movies.splice(deleteIndex, 1); 
          })
      }
      
