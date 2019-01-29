@@ -28,13 +28,13 @@ export class HeaderComponent implements OnInit {
         this.movie = "";
     }
     
-    currentUserInfo = "";
+  //   currentUserInfo = "";
     
-  getUserName(user){
-    this._appUser.getUserInfo(user).subscribe( (data:any) => {
-      this.currentUserInfo = data; 
-    })
-  }
+  // getUserName(user){
+  //   this._appUser.getUserInfo(user).subscribe( (data:any) => {
+  //     this.currentUserInfo = data; 
+  //   })
+  // }
 
 }
   

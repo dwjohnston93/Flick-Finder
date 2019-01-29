@@ -27,7 +27,7 @@
         </div>
         <!--header display of logged in user's name and dropdown menu-->
         <ng-template #LoggedIn>
-            <div id="userName" *ngIf="_appUser.userInfo"> {{_appUser.userInfo.userData.firstName}} {{_appUser.userInfo.userData.lastName}}</div>
+            <div id="userName" *ngIf="_appUser.userInfo.userData"> {{_appUser.userInfo.userData.firstName}} {{_appUser.userInfo.userData.lastName}}</div>
             <div class="header-actions">
                 <clr-dropdown>
                     <button class="nav-icon" clrDropdownTrigger>
