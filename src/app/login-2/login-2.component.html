@@ -6,30 +6,23 @@
             <clr-icon shape="film-strip" size="60"></clr-icon>            
             Flick Finder 
         </section>
+        <div class="error" *ngIf="_appUser.error.message">
+            <div class="alert alert-warning">
+                <div class="alert-items">
+                    <div class="alert-item static">
+                        <div class="alert-icon-wrapper">
+                                <clr-icon class="alert-icon" shape="exclamation-triangle"></clr-icon>
+                        </div>
+                        <span class="alert-text">{{_appUser.error.message}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="login-group">
-            <!-- <div class="auth-source select">
-                <select id="login-auth-source-1">
-                    <option>Local Users</option>
-                    <option>Administrator</option>
-                </select>
-            </div> -->
             <input [(ngModel)]="user.email" [ngModelOptions]="{standalone: true}" type="email" placeholder="email"/>
             <input [(ngModel)]="user.password" [ngModelOptions]="{standalone: true}" type="password" placeholder="password"/>
-            <div class="checkbox">
-                <!-- <input type="checkbox" id="rememberme">
-                <label for="rememberme">
-                    Remember me
-                </label> -->
-            </div>
-            <!-- <div class="error active">
-                Invalid user name or password
-            </div> -->
             <button type="submit" class="btn btn-primary" (click)="doLogin()">Login</button>
         <a routerLink (click)="goToRegister()" class="nav-link nav-icon">Not Registered? Click here</a>
         </div>
     </form>
 </div>
-<!-- <div>
-    <img class="img-responsive" src="assets/imgs/Toyogeki-Movie_Toyooka002.jpg">
-
-</div> -->

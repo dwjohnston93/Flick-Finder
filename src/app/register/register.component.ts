@@ -29,6 +29,7 @@ export class RegisterComponent implements OnInit {
 
   goToLogin(){
     this._router.navigate(['login-2']);
+    this._appUser.error.message = ""; 
   }
 
 }

@@ -14,31 +14,48 @@ export class AppUserService {
   movie = {}; 
   userData: any = {}; 
   userInfo: any = {}; 
+  error = {message: ''};
 
   baseURL: string =  "http://localhost:3000/api/appUsers";
     
     //post request to register new users
      registerUser(user){
-       this.notLoggedIn = false;
        this._http.post(this.baseURL, user).subscribe( (data:any) => {
             sessionStorage.setItem('token', data.token);
             sessionStorage.setItem('userId', data.userId);
+            this.notLoggedIn = false;
             this._router.navigate(['main']);
-        });
+            this.error.message = ""; 
+        }, err => {
+            console.log("err:", err); 
+            if (err.error.error.statusCode === 422) {
+                this.error.message = 'User input is not valid'
+                console.log('Error Message:', this.error.message)
+            } 
+          })
      }
          
     loginURL: string = "/login";
 
     //post request to login a returning user
      loginUser(user){
-       this.notLoggedIn = false;
-       this._http.post(this.baseURL + this.loginURL, user).subscribe( (data:any) => {
-         sessionStorage.setItem('token', data.token);
-         sessionStorage.setItem('userId', data.userId);
-         this._router.navigate(['main']);
-         this.userInfo = data; 
-       });
-     }
+        this._http.post(this.baseURL + this.loginURL, user).subscribe( (data:any) => {
+            sessionStorage.setItem('token', data.token);
+            sessionStorage.setItem('userId', data.userId);
+            this.notLoggedIn = false;
+            this._router.navigate(['main']);
+            this.userInfo = data; 
+            this.error.message = ""; 
+        }, err => {
+            console.log("err:", err); 
+            if (err.error.error.statusCode === 401) {
+                this.error.message = 'User input is not valid';
+            } 
+            else if (err.error.error.statusCode === 400) {
+                this.error.message = "Username or email is required"; 
+            }
+          })
+    }
     
     logoutURL: string = "/logout?access_token+";
     
