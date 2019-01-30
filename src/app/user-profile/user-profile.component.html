@@ -1,9 +1,9 @@
     <div id="header">
         <h3><strong> Name: </strong>{{_appUser.userInfo.userData.firstName}} {{_appUser.userInfo.userData.lastName}}</h3>
         <h3><strong> Email: </strong> {{_appUser.userInfo.userData.email}}</h3>
-    </div>
         <h3><strong>Favorited Movies:</strong></h3>
-    <div class="row" *ngIf="_appUser.userInfo.userData.movies.length !== 0; else prompt">
+    </div>
+    <div id= "movies" class="row" *ngIf="_appUser.userInfo.userData.movies.length !== 0; else prompt">
         <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12" *ngFor="let result of _appUser.userInfo.userData.movies">
             <div class="card">
                 <div class="card-img">
@@ -24,5 +24,5 @@
         </div>
     </div>
     <ng-template #prompt >
-        <strong id="prompt">Favorite some movies!</strong>
+        <strong id="prompt">Consider favoriting some movies!</strong>
     </ng-template>

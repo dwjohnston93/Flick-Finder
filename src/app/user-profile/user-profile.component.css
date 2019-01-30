@@ -2,6 +2,10 @@ div{
     margin-top: 100px;
 }
 
+#movies{
+    margin-top: -150px; 
+}
+
 #prompt{
     text-align: center;
 }
