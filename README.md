@@ -10,7 +10,7 @@ Flick Finder is an Angular project using TypeScript. The backend API uses MongoD
 
 ### Prerequisites
 
-To begin make sure node and npm are installed. Please make sure latest Node 10 LTS and NPM 6+ are installed. In addition, make sure that you have [Angulara CLI](https://cli.angular.io/) installed locally. This project was use Angular 5.x. 
+To begin make sure node and npm are installed. Please make sure latest [Node 10 LTS](https://nodejs.org/en/) and [NPM 6+](https://www.npmjs.com/get-npm) are installed. In addition, make sure that you have [Angulara CLI](https://cli.angular.io/) installed locally. This project was use Angular 5.x. 
 
 ```
 npm install -g @angular/cli
@@ -48,6 +48,10 @@ http://localhost:4200/
 * [MongoDB](https://www.mongodb.com/)
 * [Loopback](http://loopback.io/)
 * [Clarity](https://clarity.design)
+
+## Authors
+
+* Daniel Johnston - [dwjohnston93](https://github.com/dwjohnston93)
 
 ## License
 
