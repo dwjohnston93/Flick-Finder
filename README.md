@@ -18,12 +18,6 @@ npm install -g @angular/cli
 
 ### Installing
 
-Clone the remote repository
-
-```
-git clone https://github.com/dwjohnston93/Flick-Finder.git
-```
-
 From within the `Flick-Finder` directory, run `npm install` to install all dependencies.
 
 ```
@@ -36,7 +30,7 @@ Once that completes, use `ng serve` to get a local copy running
 ng serve
 ```
 
-This should deploy the an instance of the app running locally at:
+This should deploy an instance of the app running locally at:
 
 ```
 http://localhost:4200/
