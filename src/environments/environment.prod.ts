@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
-};
+  mode: 'Production',
+  url: 'https://flick-finder-1.herokuapp.com/api/'
+}

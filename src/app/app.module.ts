@@ -14,7 +14,7 @@ import { MainComponent } from './main/main.component';
 import { SidebarComponent } from './sidebar/sidebar.component'; 
 import { SidebarService } from './sidebar.service';
 import { ResultsComponent } from './results/results.component';
-import { Login2Component } from './login-2/login-2.component';
+import { LoginComponent } from './login/login.component';
 import { UserProfileComponent } from './user-profile/user-profile.component'
 
 @NgModule({
@@ -26,7 +26,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component'
     MainComponent,
     SidebarComponent,
     ResultsComponent,
-    Login2Component,
+    LoginComponent,
     UserProfileComponent
   ],
   imports: [

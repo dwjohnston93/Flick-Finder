@@ -70,7 +70,6 @@ export class AppUserService {
 
      saveMovie(movie){
          let userId = sessionStorage.getItem("userId"); 
-         console.log(this.userInfo.userData.movies);
          let check = this.userInfo.userData.movies.filter(saved => {  
             return saved.overview === movie.overview
          });

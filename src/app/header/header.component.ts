@@ -22,19 +22,9 @@ export class HeaderComponent implements OnInit {
 
   getMovieSearch(movie){
     this._movie.movieSearch = movie;
-        console.log("Header Comp currentSearch", this._movie.currentSearch); 
         this._router.navigate(['search']); 
         this._movie.getMovieData(); 
         this.movie = "";
     }
-    
-  //   currentUserInfo = "";
-    
-  // getUserName(user){
-  //   this._appUser.getUserInfo(user).subscribe( (data:any) => {
-  //     this.currentUserInfo = data; 
-  //   })
-  // }
-
 }
   

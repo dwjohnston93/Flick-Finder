@@ -11,12 +11,12 @@
                 <button type="button" class="btn btn-icon btn-primary" id="search-button" (click)=getMovieSearch(movieInput.value)>
                     <clr-icon shape="search"></clr-icon>
                  </button>    
-                 <input type="text" [(ngModel)]="movie" name="m" #movieInput (keydown.enter)="onKeydown(getMovieSearch(movieInput.value))" placeholder="Search for keywords...">
+                 <input type="text" [(ngModel)]="movie" name="m" #movieInput (keydown.enter)="getMovieSearch(movieInput.value)" placeholder="Search for keywords...">
         </form>    
         <!--div showing login and register if user isn't logged in-->
     <div class="header-actions">
         <div *ngIf="_appUser.notLoggedIn; else LoggedIn">
-            <a routerLink="login-2" class="nav-link nav-icon">
+            <a routerLink="login" class="nav-link nav-icon">
                 <span id="loginWord"> Login </span>
                 <clr-icon shape="login" id="loginShape"> </clr-icon>
             </a> 
