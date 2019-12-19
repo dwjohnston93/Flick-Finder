@@ -1,6 +1,6 @@
 <app-sidebar></app-sidebar>
 
-<h1>{{_movie.displayHeader}}</h1>
+<h1>{{this._movie.displayHeader}}</h1>
 <div class="row" *ngIf="this._movie.movies">
     <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12" *ngFor="let result of this._movie.movies.results">
         <div class="card">
