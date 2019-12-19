@@ -18,6 +18,8 @@ export class MovieDbService {
         return this._http.get(popularURLRequest).subscribe( data =>{
         this.displayHeader = "Popular Movies";
         this.movies = data
+        this.movies.results.forEach(i => i.message = "")
+        console.log("this.movies:", this.movies)
       });
     }
   

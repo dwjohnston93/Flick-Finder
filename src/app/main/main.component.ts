@@ -29,7 +29,7 @@ export class MainComponent implements OnInit {
       overview: movie.overview
     }
     
-    this._appUser.saveMovie(favMovie)
+    this._appUser.saveMovie(favMovie, movie)
         
   }
 

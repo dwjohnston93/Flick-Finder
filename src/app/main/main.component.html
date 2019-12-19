@@ -1,8 +1,8 @@
 <app-sidebar></app-sidebar>
 
 <h1>{{this._movie.displayHeader}}</h1>
-<div class="row" *ngIf="this._movie.movies">
-    <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12" *ngFor="let result of this._movie.movies.results">
+<div class="row" *ngIf="_movie.movies">
+    <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12" *ngFor="let result of _movie.movies.results; let i = index">
         <div class="card">
             <div class="card-img">
                 <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2{{result.poster_path}}" alt="..." />
@@ -17,18 +17,30 @@
             </div>
             <div class="card-footer" *ngIf = "_appUser.loggedIn">
                 <button class="btn btn-sm btn-link" (click)=addMovie(result)>Add movie to favorites</button>
-                <div class="error" *ngIf="_appUser.error.message">
-                        <div class="alert alert-info">
-                            <div class="alert-items">
-                                <div class="alert-item static">
-                                    <div class="alert-icon-wrapper">
-                                            <clr-icon class="alert-icon" shape="info-circle"></clr-icon>
-                                    </div>
-                                    <span class="alert-text">{{_appUser.error.message}}</span>
+                <div class="error" *ngIf="result.message === 'You have already favorited this movie'">
+                    <div class="alert alert-info">
+                        <div class="alert-items">
+                            <div class="alert-item static">
+                                <div class="alert-icon-wrapper">
+                                        <clr-icon class="alert-icon" shape="info-circle"></clr-icon>
                                 </div>
+                                <span class="alert-text">{{result.message}}</span>
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="error" *ngIf="result.message === 'You favorited this movie'">
+                    <div class="alert alert-success">
+                        <div class="alert-items">
+                            <div class="alert-item static">
+                                <div class="alert-icon-wrapper">
+                                        <clr-icon class="alert-icon" shape="check-circle"></clr-icon>
+                                </div>
+                                <span class="alert-text">{{result.message}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

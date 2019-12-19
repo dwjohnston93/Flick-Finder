@@ -67,17 +67,19 @@ export class AppUserService {
     
      moviesURL: string = "/movies"; 
     
-     saveMovie(movie){
+     saveMovie(favMovie, result){
+         console.log("movie:", result)
          let userId = sessionStorage.getItem("userId"); 
          let check = this.userInfo.userData.movies.filter(saved => {  
-            return saved.overview === movie.overview
+            return saved.overview === favMovie.overview
          });
          if (check.length === 1){
-            this.error.message = "You have already favorited this movie"
+            result.message = "You have already favorited this movie"
          } 
          else {
-            return this._http.post(this.baseURL + "/" + userId + this.moviesURL, movie)
+            return this._http.post(this.baseURL + "/" + userId + this.moviesURL, favMovie)
             .subscribe(saveMovie =>{
+                result.message = "You favorited this movie"
                 this.userInfo.userData.movies.push(saveMovie);
             })
          }
