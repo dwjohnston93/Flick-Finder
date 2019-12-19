@@ -15,7 +15,7 @@
         </form>    
         <!--div showing login and register if user isn't logged in-->
     <div class="header-actions clr-col-12">
-        <div *ngIf="_appUser.notLoggedIn; else LoggedIn">
+        <div *ngIf="!_appUser.loggedIn; else LoggedIn">
             <a routerLink="login" class="nav-link nav-icon" id="login">
                 <span id="loginWord"> Login </span>  
                 <clr-icon shape="login" id="loginShape"> </clr-icon>

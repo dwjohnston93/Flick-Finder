@@ -15,7 +15,7 @@
                   <strong>User Rating:</strong>{{result.vote_average}}/10
                 </p>
             </div>
-            <div class="card-footer" *ngIf = "!_appUser.notLoggedIn">
+            <div class="card-footer" *ngIf = "_appUser.loggedIn">
                 <button class="btn btn-sm btn-link" (click)=addMovie(result)>Add movie to favorites</button>
                 <div class="error" *ngIf="_appUser.error.message">
                         <div class="alert alert-info">

@@ -8,7 +8,7 @@ export class AppUserService {
 
   constructor(private _http: HttpClient, private _router: Router) { }
   
-  notLoggedIn: boolean = true; 
+  loggedIn: boolean = false; 
   
   token = sessionStorage.getItem("token");
   movie = {}; 
@@ -23,7 +23,7 @@ export class AppUserService {
        this._http.post(this.baseURL, user).subscribe( (data:any) => {
             sessionStorage.setItem('token', data.token);
             sessionStorage.setItem('userId', data.userId);
-            this.notLoggedIn = false;
+            this.loggedIn = true;
             this._router.navigate(['main']);
             this.error.message = ""; 
         }, err => {
@@ -42,7 +42,7 @@ export class AppUserService {
         this._http.post(this.baseURL + this.loginURL, user).subscribe( (data:any) => {
             sessionStorage.setItem('token', data.token);
             sessionStorage.setItem('userId', data.userId);
-            this.notLoggedIn = false;
+            this.loggedIn = true;
             this._router.navigate(['main']);
             this.userInfo = data; 
             this.error.message = ""; 
@@ -61,7 +61,7 @@ export class AppUserService {
     
     //post request to log out user
      logoutUser(user){
-         this.notLoggedIn = true;
+         this.loggedIn = false;
          return this._http.post(this.baseURL + this.logoutURL + this.token, user);
      }
     
