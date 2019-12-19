@@ -10,8 +10,6 @@ import { AppUserService } from '../app-user.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
-  movie: String;
   
   constructor(private _movie: MovieDbService, private _router: Router, private _appUser: AppUserService) { 
     
@@ -20,11 +18,14 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
-  getMovieSearch(movie){
-    this._movie.movieSearch = movie;
-        this._router.navigate(['search']); 
-        this._movie.getMovieData(); 
-        this.movie = "";
+  query: string; 
+
+  getMovieSearch(query){
+    console.log("query:", query)
+    // this._movie.movieSearch = movie;
+        this._router.navigate(['main']); 
+        this._movie.getMovieData(query); 
+        this.query = "";
     }
 }
   

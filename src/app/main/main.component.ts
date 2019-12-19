@@ -17,6 +17,7 @@ export class MainComponent implements OnInit {
   }
 
   getMainPage(){
+      console.log("hit")
       this._movie.getPopularData()
     }
     

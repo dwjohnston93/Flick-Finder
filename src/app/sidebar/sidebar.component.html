@@ -1,5 +1,5 @@
 
-<nav class="sidenav" *ngIf = "this._movie.genreData">
+<nav class="sidenav .clr-col-2" *ngIf = "this._movie.genreData">
     <section class="sidenav-content">
         <a *ngFor="let result of this._movie.genreData.genres" class="nav-link active" (click)="getResults(result.id, result.name)">
             {{result.name}}

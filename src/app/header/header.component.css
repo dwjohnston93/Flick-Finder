@@ -5,33 +5,26 @@
     z-index: 100;
 }
 
+#login{
+    margin-left: -30%
+}
+
 #loginWord{
-    position: fixed; 
-    margin-left: -100px;
+    margin-left: -50%;
 }
 
 #registerWord{
-    position: fixed; 
-    margin-left: -40px;
+    margin-left: -50%;
 }
 
 #loginShape{
-    margin-left:-150px;
+    margin-left:-20%;
 }
 
 #registerShape{
-    margin-left: -90px;
-}
-
-#logoutBtn{
-    margin-top: 14px;
-}
-
-#logoutIcon{
-    margin-top:14px;
+    margin-left: 10%;
 }
 
 #userName{
-    margin-left: 660px;
     margin-top: 20px;
-}
+} 

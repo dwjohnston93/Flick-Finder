@@ -1,23 +1,23 @@
 
 
-<header class="header-4">
+<header class="header-4 col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <div class="branding">
-        <a routerLink = "main" class="nav-link">
+        <a routerLink = "main" (click)="this._movie.getPopularData()" class="nav-link">
            <clr-icon shape="film-strip"  class="is-inverse"></clr-icon>
             <span class="title">Flick Finder</span>
         </a>
     </div>
         <form class="search">
-                <button type="button" class="btn btn-icon btn-primary" id="search-button" (click)=getMovieSearch(movieInput.value)>
+                <button type="button" class="btn btn-icon btn-primary" id="search-button" (click)=getMovieSearch(queryInput.value)>
                     <clr-icon shape="search"></clr-icon>
                  </button>    
-                 <input type="text" [(ngModel)]="movie" name="m" #movieInput (keydown.enter)="getMovieSearch(movieInput.value)" placeholder="Search for keywords...">
+                 <input type="text" [(ngModel)]="query" name="q" #queryInput  (keydown.enter)="getMovieSearch(queryInput.value)" placeholder="Search for keywords...">
         </form>    
         <!--div showing login and register if user isn't logged in-->
-    <div class="header-actions">
+    <div class="header-actions clr-col-12">
         <div *ngIf="_appUser.notLoggedIn; else LoggedIn">
-            <a routerLink="login" class="nav-link nav-icon">
-                <span id="loginWord"> Login </span>
+            <a routerLink="login" class="nav-link nav-icon" id="login">
+                <span id="loginWord"> Login </span>  
                 <clr-icon shape="login" id="loginShape"> </clr-icon>
             </a> 
             <a routerLink="register" class="nav-link nav-icon">
@@ -27,8 +27,8 @@
         </div>
         <!--header display of logged in user's name and dropdown menu-->
         <ng-template #LoggedIn>
-            <div id="userName" *ngIf="_appUser.userInfo.userData"> {{_appUser.userInfo.userData.firstName}} {{_appUser.userInfo.userData.lastName}}</div>
             <div class="header-actions">
+                <div id="userName" *ngIf="_appUser.userInfo.userData"> {{_appUser.userInfo.userData.firstName}} {{_appUser.userInfo.userData.lastName}}</div>
                 <clr-dropdown>
                     <button class="nav-icon" clrDropdownTrigger>
                         <clr-icon shape="user"></clr-icon>

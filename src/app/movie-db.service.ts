@@ -10,11 +10,14 @@ export class MovieDbService {
   api_key: string = "e92710572331ea2ed1eb679386cb452c"; 
   popularURL: string = `https:api.themoviedb.org/3/movie/popular?api_key=${this.api_key}&language=en-US&page=1`;
   popularData: any;
+  movies: any;
+  displayHeader: string = "Popular Movies"
   
     getPopularData(){
         let popularURLRequest = this.popularURL; 
         return this._http.get(popularURLRequest).subscribe( data =>{
-        this.popularData = data
+        this.displayHeader = "Popular Movies";
+        this.movies = data
       });
     }
   
@@ -30,7 +33,7 @@ export class MovieDbService {
     }); 
   }
   
-  getGenre(){}
+  // getGenre(){}
   
   genreMovieURL: string = `https://api.themoviedb.org/3/discover/movie?api_key=${this.api_key}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=`
   currentGenre: any;
@@ -41,7 +44,8 @@ export class MovieDbService {
   getMoviesByGenre(){
       let genreURLRequest = this.genreMovieURL + this.genreID; 
       this._http.get(genreURLRequest).subscribe( data => {
-          this.currentGenre = data
+          this.movies = data;
+          this.displayHeader = this.genreName;
       })
   }
   
@@ -49,15 +53,15 @@ export class MovieDbService {
   // apiKey: string = "api_key=e92710572331ea2ed1eb679386cb452c";
   query: string = "&query=";
    
-    movieSearch: any; 
-    currentSearch: any;
+    // movieSearch: any; 
+    // currentSearch: any;
     
-  getMovieData(){
-    let urlRequest = this.url + this.api_key + this.query + this.movieSearch; 
+  getMovieData(query){
+    let urlRequest = `${this.url}${this.api_key}&query=${query}`; 
     this._http.get(urlRequest).subscribe( data =>{
-        this.currentSearch = data
-        })
-        
+        this.movies = data
+        this.displayHeader = `Search results for ${query}`
+    })
   }
         
 }

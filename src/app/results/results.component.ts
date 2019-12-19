@@ -11,31 +11,31 @@ import { AppUserService } from '../app-user.service';
 })
 export class ResultsComponent implements OnInit {
 
-  genreResults: number;
-  type: string;
-  genreDisplay: any;
+//   genreResults: number;
+//   type: string;
+//   genreDisplay: any;
   
-  constructor(private _movie: MovieDbService, private _appUser: AppUserService) { 
-    if(this._movie.genreID) {
-      this.genreResults = this._movie.genreID;
-    }
-    this._movie.currentGenre = {};
-  }
+//   constructor(private _movie: MovieDbService, private _appUser: AppUserService) { 
+//     if(this._movie.genreID) {
+//       this.genreResults = this._movie.genreID;
+//     }
+//     this._movie.currentGenre = {};
+//   }
 
   ngOnInit() {
   }
   
-  addMovie(movie){
+//   addMovie(movie){
         
-    let favMovie = {
-      original_title: movie.original_title,
-      poster_path: movie.poster_path,
-      release_date: movie.release_date,
-      overview: movie.overview
-    }
+//     let favMovie = {
+//       original_title: movie.original_title,
+//       poster_path: movie.poster_path,
+//       release_date: movie.release_date,
+//       overview: movie.overview
+//     }
     
-      this._appUser.saveMovie(favMovie)
+//       this._appUser.saveMovie(favMovie)
         
-  }
+
 
 }
