@@ -11,7 +11,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor(public _sidebar: SidebarService, private _movie: MovieDbService, private _router: Router) { }
+  constructor(public _sidebar: SidebarService, public _movie: MovieDbService, private _router: Router) { }
 
   results: any;
 
