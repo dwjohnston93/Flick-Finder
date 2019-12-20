@@ -19,7 +19,6 @@ export class MovieDbService {
         this.displayHeader = "Popular Movies";
         this.movies = data
         this.movies.results.forEach(i => i.message = "")
-        console.log("this.movies:", this.movies)
       });
     }
   

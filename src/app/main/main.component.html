@@ -5,7 +5,12 @@
     <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12" *ngFor="let result of _movie.movies.results; let i = index">
         <div class="card">
             <div class="card-img">
-                <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2{{result.poster_path}}" alt="..." />
+                <div *ngIf="result.poster_path; else noPoster">
+                    <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2{{result.poster_path}}" alt="movie poster for current movie card" />
+                </div>
+                <ng-template #noPoster>
+                    <img src="https://images.unsplash.com/photo-1542204165-65bf26472b9b?ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80" alt="no movie poster available" width="299.99" height="449.99">
+                </ng-template>
             </div>
             <div class="card-block">
                 <p class="card-text">

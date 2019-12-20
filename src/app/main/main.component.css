@@ -11,3 +11,8 @@ h1{
     margin-right: 25px;
     z-index: 2;
 }
+
+img{
+    display: block;
+    margin: auto;
+}

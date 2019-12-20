@@ -21,8 +21,6 @@ export class HeaderComponent implements OnInit {
   query: string; 
 
   getMovieSearch(query){
-    console.log("query:", query)
-    // this._movie.movieSearch = movie;
         this._router.navigate(['main']); 
         this._movie.getMovieData(query); 
         this.query = "";
