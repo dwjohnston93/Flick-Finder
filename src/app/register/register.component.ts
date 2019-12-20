@@ -11,9 +11,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private _appUser: AppUserService,  private _router: Router) { }
+  constructor(public _appUser: AppUserService,  private _router: Router) { }
 
-  userData = {movies: []};
+  userData: any = {movies: []};
   userInfo = 
   {
     userData: this.userData

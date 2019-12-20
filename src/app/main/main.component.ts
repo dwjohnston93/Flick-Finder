@@ -10,7 +10,7 @@ import { AppUserService } from '../app-user.service';
 })
 export class MainComponent implements OnInit {
 
-  constructor(private _movie: MovieDbService, private _appUser: AppUserService) { }
+  constructor(public _movie: MovieDbService, public _appUser: AppUserService) { }
 
   ngOnInit() {
     this.getMainPage();

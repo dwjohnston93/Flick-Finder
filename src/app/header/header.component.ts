@@ -11,7 +11,7 @@ import { AppUserService } from '../app-user.service';
 })
 export class HeaderComponent implements OnInit {
   
-  constructor(private _movie: MovieDbService, private _router: Router, private _appUser: AppUserService) { 
+  constructor(public _movie: MovieDbService, private _router: Router, public _appUser: AppUserService) { 
     
   }
 
