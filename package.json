@@ -2,6 +2,7 @@
   "name": "flick-finder",
   "version": "0.0.0",
   "license": "MIT",
+  "main": "server.js",
   "engines": {
     "node": "10.16.0",
     "npm": "6.9.0"
