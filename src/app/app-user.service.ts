@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Observable} from 'rxjs/Observable';
 import { HttpClient } from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
+import {environment} from '../../src/environments/environment';
+
 
 @Injectable()
 export class AppUserService {
@@ -16,7 +18,7 @@ export class AppUserService {
   userInfo: any = {}; 
   error = {message: ''};
 
-  baseURL: string =  "http://localhost:3000/api/appUsers";
+  baseURL: string =  `${environment.url}/api/appUsers`;
     
     //post request to register new users
      registerUser(user){
