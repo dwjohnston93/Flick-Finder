@@ -70,7 +70,6 @@ export class AppUserService {
      moviesURL: string = "/movies"; 
     
      saveMovie(favMovie, result){
-         console.log("movie:", result)
          let userId = sessionStorage.getItem("userId"); 
          let check = this.userInfo.userData.movies.filter(saved => {  
             return saved.overview === favMovie.overview
