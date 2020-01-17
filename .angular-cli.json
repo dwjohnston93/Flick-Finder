@@ -10,7 +10,7 @@
       "assets": [
         "assets",
         "_redirects",
-        "favicon.svg"
+        "favicon.png"
       ],
       "index": "index.html",
       "main": "main.ts",

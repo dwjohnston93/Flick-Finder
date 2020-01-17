@@ -37,6 +37,7 @@ testem.log
 /data
 /server
 mongod
+key.ts
 
 # e2e
 /e2e/*.js

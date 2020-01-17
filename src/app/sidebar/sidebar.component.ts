@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { SidebarService } from '../sidebar.service';
 import { MovieDbService } from '../movie-db.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -11,7 +10,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor(public _sidebar: SidebarService, public _movie: MovieDbService, private _router: Router) { }
+  constructor(public _movie: MovieDbService, private _router: Router) { }
 
   results: any;
 

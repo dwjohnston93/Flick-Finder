@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable} from 'rxjs/Observable';
+import { Key } from './key'
 
 @Injectable()
 export class MovieDbService {
     
-  constructor(private _http: HttpClient) { }
+  constructor(private _http: HttpClient, private _key: Key) { }
   
-  api_key: string = "e92710572331ea2ed1eb679386cb452c"; 
+  api_key: string = this._key.apiKey; 
   popularURL: string = `https:api.themoviedb.org/3/movie/popular?api_key=${this.api_key}&language=en-US&page=1`;
   popularData: any;
   movies: any;
@@ -18,6 +19,8 @@ export class MovieDbService {
         return this._http.get(popularURLRequest).subscribe( data =>{
         this.displayHeader = "Popular Movies";
         this.movies = data
+        console.log("api_key:", this.api_key)
+        console.log("data:", data)
         this.movies.results.forEach(i => i.message = "")
       });
     }

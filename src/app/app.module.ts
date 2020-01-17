@@ -11,9 +11,10 @@ import { RegisterComponent } from './register/register.component';
 import { HeaderComponent } from './header/header.component';
 import { MainComponent } from './main/main.component';
 import { SidebarComponent } from './sidebar/sidebar.component'; 
-import { SidebarService } from './sidebar.service';
+// import { SidebarService } from './sidebar.service';
 import { LoginComponent } from './login/login.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { Key } from './key'
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     FormsModule,
     routes
   ],
-  providers: [MovieDbService, AppUserService, SidebarService],
+  providers: [MovieDbService, AppUserService, Key],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
