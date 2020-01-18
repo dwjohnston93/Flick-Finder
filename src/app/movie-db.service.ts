@@ -4,6 +4,7 @@ import { Observable} from 'rxjs/Observable';
 import { Key } from './key'
 
 @Injectable()
+
 export class MovieDbService {
     
   constructor(private _http: HttpClient, private _key: Key) { }
@@ -16,11 +17,9 @@ export class MovieDbService {
   
     getPopularData(){
         let popularURLRequest = this.popularURL; 
-        return this._http.get(popularURLRequest).subscribe( data =>{
+        return this._http.get(popularURLRequest, {responseType: 'json'}).subscribe( data =>{
         this.displayHeader = "Popular Movies";
         this.movies = data
-        console.log("api_key:", this.api_key)
-        console.log("data:", data)
         this.movies.results.forEach(i => i.message = "")
       });
     }
@@ -36,15 +35,12 @@ export class MovieDbService {
         this.genreData = data;
     }); 
   }
-  
-  // getGenre(){}
-  
+    
   genreMovieURL: string = `https://api.themoviedb.org/3/discover/movie?api_key=${this.api_key}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=`
   currentGenre: any;
   genreID: number;
   genreName: string; 
 
-  
   getMoviesByGenre(){
       let genreURLRequest = this.genreMovieURL + this.genreID; 
       this._http.get(genreURLRequest).subscribe( data => {
@@ -53,10 +49,10 @@ export class MovieDbService {
       })
   }
   
-  url: string = "https://api.themoviedb.org/3/search/movie?api_key=";
+  searchUrl: string = "https://api.themoviedb.org/3/search/movie?api_key=";
     
   getMovieData(query){
-    let urlRequest = `${this.url}${this.api_key}&query=${query}`; 
+    let urlRequest = `${this.searchUrl}${this.api_key}&query=${query}`; 
     this._http.get(urlRequest).subscribe( data =>{
         this.movies = data
         this.displayHeader = `Search results for ${query}`

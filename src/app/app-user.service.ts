@@ -49,7 +49,6 @@ export class AppUserService {
             this.userInfo = data; 
             this.error.message = ""; 
         }, err => {
-            console.log("err:", err); 
             if (err.error.error.statusCode === 401) {
                 this.error.message = 'User input is not valid';
             } 
