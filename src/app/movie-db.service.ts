@@ -54,11 +54,6 @@ export class MovieDbService {
   }
   
   url: string = "https://api.themoviedb.org/3/search/movie?api_key=";
-  // apiKey: string = "api_key=e92710572331ea2ed1eb679386cb452c";
-  query: string = "&query=";
-   
-    // movieSearch: any; 
-    // currentSearch: any;
     
   getMovieData(query){
     let urlRequest = `${this.url}${this.api_key}&query=${query}`; 
